@@ -21,10 +21,6 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
 
   **Python Challenges**  
 
-   - **8 kyu**
-
-   - **7 kyu**
-
    - **6 kyu**
         - [Challenge 1: Who Likes it?](Python/8kyu/who_likes_it.py) 
 
@@ -36,7 +32,7 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
   A collection of notes and challenges for Python programming. This section includes various notes on syntax, libraries, and best practices. 
 
   **SQL Notes**  
-  - [SQL Notes PDF](Python/Notes/SQL_notes.pdf)  
+  - [SQL's Basic Notes](SQL/Notes/SQL_notes.md)  
 
   **SQL Challenges**  
 
