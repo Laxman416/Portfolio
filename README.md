@@ -22,7 +22,7 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
   **Python Challenges**  
 
    - **6 kyu**
-        - [Challenge 1: Who Likes it?](Python/8kyu/who_likes_it.py) 
+        - [Challenge 1: Who Likes it?](Python/6kyu/who_likes_it.py) 
 
           *Description: Tests understanding of conditionals and string formatting in Python.*
      
@@ -36,10 +36,14 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
   - [SQL PDF Notes](<SQL/Notes/SQL Notes PDF.pdf>) *Description: Downloaded from s-shemmee github.*
 
 
-  **SQL Challenges**  
+  **SQL Challenges**
+  
+  - **8 kyu**
+    - [Challenge 1: Will you make it?](SQL/8kyu/Will%20you%20make%20it.sql)
 
+      *Description: Tests understanding of mathematics and fundamentals in SQL.*
 
-
+---
   
 
 
