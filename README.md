@@ -29,10 +29,12 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
 ---
 ### SQL
 
-  A collection of notes and challenges for Python programming. This section includes various notes on syntax, libraries, and best practices. 
+  A collection of notes and challenges for SQL programming. This section includes various notes on syntax, table relationships, and databases.
 
   **SQL Notes**  
-  - [SQL's Basic Notes](SQL/Notes/SQL_notes.md)  
+  - [SQL's Basic Notes](SQL/Notes/SQL_notes.md) *Description: Covers the basics of SQL like SELECT, ...*
+  - [SQL PDF Notes](<SQL/Notes/SQL Notes PDF.pdf>) *Description: Downloaded from s-shemmee github.*
+
 
   **SQL Challenges**  
 
