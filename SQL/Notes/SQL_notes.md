@@ -17,6 +17,8 @@ MySQL Workbench is an app for SQL.
 - [Querying Data](#querying-data)
 - [Joins and Relationships](#joins-and-relationships)
   - [JOIN Statement](#join-statement)
+- [Aggregation Functions and Grouping](#aggregation-functions-and-grouping)
+  - [Grouping Data](#grouping-data)
 
 ## Database Basics
 - Rows known as records
@@ -159,14 +161,68 @@ Constraints
 
 - **INNER JOIN**
 Retrieves rows that have matching values in both tables being joined.
+Combines values that has values in left and right.
 
-- **JOIN Statements**
+```sql
+SELECT * FROM bands
+JOIN albums ON bands.id = albums.band_id;
+```
+band table with album table added
+
+| id | band_name      | album_id | album_name       | band_id |
+|---------|----------------|----------|------------------|---|
+| 1       | The Beatles    | 1        | Abbey Road       | 1 | 
+| 1       | The Beatles    | 2        | Sgt. Pepper      | 1 |
+| 2       | Pink Floyd     | 3        | Dark Side of the Moon | 1 |
+| 2       | Pink Floyd     | 4        | The Wall         | 1 |
+
+- **LEFT/RIGHT JOIN Statements**
+Retrieves all rows from the left table and matching rows from right if any. 
+
+```sql
+SELECT * FROM bands
+LEFT JOIN albums ON bands.id = albums.band_id;
+```
+band table with album table added
+
+| id      | band_name      | album_id | album_name            | band_id |
+|---------|----------------|----------|-----------------------|---------|
+| 1       | The Beatles    | 1        | Abbey Road            | 1       | 
+| 1       | The Beatles    | 2        | Sgt. Pepper           | 1       |
+| 2       | Pink Floyd     | 3        | Dark Side of the Moon | 1       |
+| 2       | Pink Floyd     | 4        | The Wall              | 1       |
+| 3       | Ankor          | 5        |                       |         |
+
+- Ankor doesn't have any albums so `LEFT JOIN` allows it to be outputted.
+
+- **FULL JOIN Statements**
+Tries to match if no match of a row still shows it but with empty columns.
+
+## Aggregation Functions and Grouping
+Aggregation Functions perform calculations on a set of rows and return a single result.
+
+**Key Function:**
+- **SUM:** Calculates the sum of a columns values
+- **AVG:** Calculate column's average
+- **COUNT:** Returns the number of rows in group
+- **MIN:** Returns Min value
+- **MAX:** Returns Max value
+
+### Grouping Data
+```sql
+SELECT band_id, COUNT(band_id) FROM albums
+GROUP BY band_id
+```
+This allows to count the amount of albums by same band.
+
+| band_id | COUNT(band_id) |
+|---------|----------------|
+| 1       | 2              |
+| 2       | 1              |
+| 3       | 1              |
 
 
-
-
-
-
+**HAVING:** Statement same as `WHERE` but happens after `GROUP BY`.
 
 ---
 
