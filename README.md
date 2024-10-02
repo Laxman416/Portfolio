@@ -44,9 +44,14 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
       *Description: Tests understanding of mathematics and fundamentals in SQL.*
 
   - **7 kyu**
-    - [Challenge 2: Perpendicular Lines](SQL/7kyu/Perpendicular%Lines.sql)
+    - [Challenge 2: Perpendicular Lines](SQL/7kyu/Perpendicular%20Lines.sql)
 
       *Description: Tests understanding of fundamentals, geometry and algorithms in SQL.*
+
+  - **6 kyu**
+    - [Challenge 3: SQL Basics: JOIN and RANK](SQL/6kyu/SQL%20BASICS%20-%20JOIN%20and%20RANK.sql)
+
+      *Description: Tests understanding of fundamentals of SQL using JOIN and RANK.*
 
 ---
   
