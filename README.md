@@ -33,6 +33,10 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
         - [Challenge 3: String Splitting](Python/6kyu/String%20Splitting.py) 
 
           *Description: Tests understanding of conditionals and string manipulation in Python.*
+
+        - [Challenge 4: Narcissistic Value](Python/6kyu/Narcissistic%20Value.py) 
+
+          *Description: Tests understanding of integer and string manipulation in Python.*
      
 ---
 ### SQL
