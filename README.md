@@ -25,6 +25,10 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
         - [Challenge 1: Who Likes it?](Python/6kyu/who_likes_it.py) 
 
           *Description: Tests understanding of conditionals and string formatting in Python.*
+
+        - [Challenge 2: Counting Duplicates](Python/6kyu/Counting%20Duplicates.py) 
+
+          *Description: Tests understanding of conditionals and Count() function in Python.*
      
 ---
 ### SQL
