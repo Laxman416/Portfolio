@@ -1,4 +1,5 @@
-# Codewars
+# CodingRepository
+This Repository contains all the projects completed such as SQL for Data Cleaning and Data Analysis.
 Contains all the assessments completed on Codewars for multiple programming languages.
 These assessments test my attention to detail, testing for syntax and logic errors, problem solving and technical skills related to programming.
 
@@ -10,8 +11,6 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
 Each Language is split into kyu ranging from 8kyu to 1kyu.
 8kyu challenges are the easiest while 1kyu are the hardest.
-
-## Table of Contents
 
 ### Python
 
@@ -68,6 +67,24 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
     - [Challenge 3: SQL Basics: JOIN and RANK](SQL/6kyu/SQL%20BASICS%20-%20JOIN%20and%20RANK.sql)
 
       *Description: Tests understanding of fundamentals of SQL using JOIN and RANK.*
+
+    - [Challenge 4: SQL Bug Fixing: Query](SQL/6kyu/SQL%20Bug%20Fixing%20-%20Query.sql)
+
+      *Description: Tests understanding of fundamentals of SQL, and testing and bug fixing.*
+
+    - [Challenge 5: SQL Basics: Case](SQL/6kyu/SQL%20Basics%20-%20Case.sql)
+
+      *Description: Tests understanding of fundamentals of SQL, and using CASE (if-else function) in SQL.*
+
+  **SQL Projects**
+
+  - **Project 1 - Covid 19 and impact on Malaysian Stock Market**
+  
+    - [Project 1: Covid 19 and impact on Malaysian Stock Market](SQL/6kyu/Projects/Covid19/)
+
+      *Description: A project taken from katiehuangx's github to apply SQL on a larger dataset.*
+
+
 
 ---
   
