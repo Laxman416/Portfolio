@@ -76,6 +76,10 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
 
       *Description: Tests understanding of fundamentals of SQL, and using CASE (if-else function) in SQL.*
 
+    - [Challenge 6: SQL Basics: Having](SQL/6kyu/SQL%20Basics%20-%20Having.sql)
+
+      *Description: Tests understanding of fundamentals of SQL, and using Having and GROUP BY in SQL.*
+
   **SQL Projects**
 
   - **Project 1 - Covid 19 and impact on Malaysian Stock Market**
