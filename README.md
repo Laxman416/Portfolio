@@ -37,6 +37,10 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
         - [Challenge 4: Narcissistic Value](Python/6kyu/Narcissistic%20Value.py) 
 
           *Description: Tests understanding of integer and string manipulation in Python.*
+
+        - [Challenge 5: Break CamelCase](Python/6kyu/Break%20CamelCase.py) 
+
+          *Description: Tests understanding string manipulation in Python.*
      
 ---
 ### SQL
