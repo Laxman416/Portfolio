@@ -40,7 +40,25 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
         - [Challenge 5: Break CamelCase](Python/6kyu/Break%20CamelCase.py) 
 
           *Description: Tests understanding string manipulation in Python.*
-     
+
+  **Python Projects**
+
+  - **Project 1: Measuring Production Asymmetry of Neutral Charm Mesons From LHCb Run2.**
+  
+    - [Github Repository](https://github.com/sjtaylor-9/LHCb-D0-asymmetry-1)
+    - [Semester 1 MPhys Report](Python/Report/Masters_S1.pdf)
+
+      *Description: MPhys Project Semester 1 supervised by Eva Gersabeck and Aodhan Burke and completed with Sam Taylor. 
+                    Optimised the model from the previous students.*
+
+  - **Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons From LHCb Run2.**
+  
+    - [Github Repository](https://github.com/sjtaylor-9/LHCb-D0-asymmetry-2)
+    - [Semester 2 MPhys Report](Python/Report/Masters_S2.pdf)
+
+
+      *Description: MPhys Project Semester 2 supervised by Eva Gersabeck and Aodhan Burke and completed with Sam Taylor.
+                    This project focused on increasing the dataset, creating a new model for the larger dataset, modelling the detection asymmetry and creating a simulation to compare the actual results with simulated results.*
 ---
 ### SQL
 
@@ -80,13 +98,24 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
 
       *Description: Tests understanding of fundamentals of SQL, and using Having and GROUP BY in SQL.*
 
+  - **5 kyu**
+    - [Challenge 7: SQL Basics: MIN, MAX, MEDIAN](SQL/5kyu/SQL%20Basics%20-%20MIN,%20MAX,%20MEDIAN.sql)
+
+      *Description: Knowledge of MIN, MAX functions and to output MEDIAN.*
+
   **SQL Projects**
 
-  - **Project 1 - Covid 19 and impact on Malaysian Stock Market**
+  - **Project 1 - Credit Card Fraud SQL Analysis**
   
-    - [Project 1: Covid 19 and impact on Malaysian Stock Market](SQL/6kyu/Projects/Covid19/)
+    - [Project README](SQL/6kyu/Projects/CreditCardFraud/)
+  
+    - [CSV file of Credit Card Info](SQL/6kyu/Projects/CreditCardFraud/)
+    
+    - [Project notebook](SQL/6kyu/Projects/CreditCardFraud/)
 
-      *Description: A project taken from katiehuangx's github to apply SQL on a larger dataset.*
+    - [Project Report](SQL/6kyu/Projects/CreditCardFraud/)
+
+    *Description: This dataset consists of credit card transactions in the western United States. It includes information about each transaction including customer details, the merchant and category of purchase, and whether or not the transaction was a fraud. An overview of the project is shown in the markdown file, and the analysis is conducted on a jupterlab notebook. A small report is written about the result, talking about each question answered in SQL and the results.*
 
 
 
