@@ -1,17 +1,23 @@
-# CodingRepository<!-- omit in toc -->
+# 🗺️ Portfolio <!-- omit in toc -->
+
+## 📚 Table of Contents<!-- omit in toc -->
 
 - [Introduction](#introduction)
 - [Python](#python)
-  - [Python Notes](#python-notes)
-  - [Python CodeWars Challenges](#python-codewars-challenges)
-  - [Python Projects](#python-projects)
+  - [📓 Python Notes](#-python-notes)
+  - [⚔️ Python CodeWars Challenges](#️-python-codewars-challenges)
+  - [📗 Python Projects](#-python-projects)
 - [SQL](#sql)
-  - [SQL Notes](#sql-notes)
-  - [SQL CodeWars Challenges](#sql-codewars-challenges)
-  - [SQL Projects](#sql-projects)
+  - [📓 SQL Notes](#-sql-notes)
+  - [⚔️ SQL CodeWars Challenges](#️-sql-codewars-challenges)
+  - [📗 SQL Projects](#-sql-projects)
+- [C++](#c)
+  - [📓 C++ Notes](#-c-notes)
+  - [⚔️ C++ CodeWars Challenges](#️-c-codewars-challenges)
+  - [📘 C++ Assignments](#-c-assignments)
+  - [📗 C++ Projects](#-c-projects)
 
 
-## Table of Contents<!-- omit in toc -->
 
 ## Introduction
 
@@ -24,24 +30,25 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
   A collection of notes and challenges for Python programming. This section includes various notes on syntax, libraries, and best practices. 
 
-  ### Python Notes
+  ### 📓 Python Notes
 
-  ### Python CodeWars Challenges 
+  ### ⚔️ Python CodeWars Challenges 
 
   - [Python CodeWars Challenges](CodeWarsREADME.md#python-challenges)
 
     *Description: The Python CodeWars Challenges are specifically tailored to enhance your proficiency in Python, focusing on key concepts such as data structures, algorithms, and object-oriented programming.
-*
 
-  ### Python Projects
+  ### 📗 Python Projects
 
   - **Project 1: Measuring Production Asymmetry of Neutral Charm Mesons From LHCb Run2.**
   
-    - [Github Repository](https://github.com/sjtaylor-9/LHCb-D0-asymmetry-1)
+    - [Github Repository](https://github.com/sjtaylor-9/LHCb-D0-asymmetry)
     - [Semester 1 MPhys Report](Python/Report/Masters_S1.pdf)
 
       *Description: MPhys Project Semester 1 supervised by Eva Gersabeck and Aodhan Burke and completed with Sam Taylor. 
                     Optimised the model from the previous students.*
+
+      * Key Libraries Used: matplotlib, argparse, pandas, ROOT, NumPy, SciPy
 
   - **Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons From LHCb Run2.**
   
@@ -52,24 +59,26 @@ These assessments test my attention to detail, testing for syntax and logic erro
       *Description: MPhys Project Semester 2 supervised by Eva Gersabeck and Aodhan Burke and completed with Sam Taylor.
                     This project focused on increasing the dataset, creating a new model for the larger dataset, modelling the detection asymmetry and creating a simulation to compare the actual results with simulated results.*
 
+      * Key Libraries Used: matplotlib, argparse, pandas, ROOT, NumPy, SciPy
+  
 ## SQL
 
   A collection of notes and challenges for SQL programming. This section includes various notes on syntax, table relationships, and databases.
 
-  ### SQL Notes 
+  ### 📓 SQL Notes 
   - [SQL's Basic Notes](SQL/Notes/SQL_notes.md) *Description: Covers the basics of SQL like SELECT, ...*
   - [SQL PDF Notes](<SQL/Notes/SQL Notes PDF.pdf>) *Description: Downloaded from s-shemmee github.*
 
 
-  ### SQL CodeWars Challenges
+  ### ⚔️ SQL CodeWars Challenges
   
   - [SQL CodeWars Challenges](CodeWarsREADME.md#sql-challenges)
   
     *Description: The SQL CodeWars Challenges focus specifically on database-related tasks, encouraging users to write efficient and effective SQL queries.*
 
-  ### SQL Projects
+  ### 📗 SQL Projects
 
-  - **Project 1 - Credit Card Fraud SQL Analysis**
+  - 💳 **Project 1 - Credit Card Fraud SQL Analysis**
   
     - [Project README](SQL/6kyu/Projects/CreditCardFraud/)
   
@@ -81,9 +90,16 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
     *Description: This dataset consists of credit card transactions in the western United States. It includes information about each transaction including customer details, the merchant and category of purchase, and whether or not the transaction was a fraud. An overview of the project is shown in the markdown file, and the analysis is conducted on a jupterlab notebook. A small report is written about the result, talking about each question answered in SQL and the results.*
 
+## C++
 
+  A collection of notes and challenges for C++ programming. This section includes various notes on syntax, libraries, and best practices. 
 
----
-  
+  ### 📓 C++ Notes
+
+  ### ⚔️ C++ CodeWars Challenges
+
+  ### 📘 C++ Assignments
+
+  ### 📗 C++ Projects 
 
 
