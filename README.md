@@ -7,20 +7,24 @@
   - [📓 Python Notes](#-python-notes)
   - [⚔️ Python CodeWars Challenges](#️-python-codewars-challenges)
   - [📗 Python Projects](#-python-projects)
-    - [**Project 1: Measuring Production Asymmetry of Neutral Charm Mesons From LHCb Run2.**](#project-1-measuring-production-asymmetry-of-neutral-charm-mesons-from-lhcb-run2)
-    - [**Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons From LHCb Run2.**](#project-2-extended-study-on-measuring-production-asymmetry-of-neutral-charm-mesons-from-lhcb-run2)
+    - [📗 Project 1: Measuring Production Asymmetry of Neutral Charm Mesons](#-project-1-measuring-production-asymmetry-of-neutral-charm-mesons)
+    - [📗 Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons](#-project-2-extended-study-on-measuring-production-asymmetry-of-neutral-charm-mesons)
 - [SQL](#sql)
   - [📓 SQL Notes](#-sql-notes)
   - [⚔️ SQL CodeWars Challenges](#️-sql-codewars-challenges)
   - [📗 SQL Projects](#-sql-projects)
+    - [💳 Project 1 - Credit Card Fraud SQL Analysis](#-project-1---credit-card-fraud-sql-analysis)
 - [C++](#c)
   - [📓 C++ Notes](#-c-notes)
   - [⚔️ C++ CodeWars Challenges](#️-c-codewars-challenges)
   - [📘 C++ Assignments](#-c-assignments)
-    - [**📘Assignment 1 - Calculation of Transition Energy using Bohr's Model**](#assignment-1---calculation-of-transition-energy-using-bohrs-model)
-    - [**📘Assignment 2 - Computation of Course Mean, Standard Deviation, and Standard Error from File**](#assignment-2---computation-of-course-mean-standard-deviation-and-standard-error-from-file)
-    - [**📘Assignment 3 - Classes in C++**](#assignment-3---classes-in-c)
+    - [📘Assignment 1 - Calculation of Transition Energy using Bohr's Model](#assignment-1---calculation-of-transition-energy-using-bohrs-model)
+    - [📘 Assignment 2 - Computation of Course Mean, Standard Deviation, and Standard Error from File](#-assignment-2---computation-of-course-mean-standard-deviation-and-standard-error-from-file)
+    - [📘 Assignment 3 - Classes in C++](#-assignment-3---classes-in-c)
+    - [📘 Assignment 4 - Overloading Special Functions and Operators](#-assignment-4---overloading-special-functions-and-operators)
+    - [📘 Assignment 5 - Practicing inheritance, smart pointers and friendship](#-assignment-5---practicing-inheritance-smart-pointers-and-friendship)
   - [📗 C++ Projects](#-c-projects)
+    - [📗 Project 1 - Particle Catalogue](#-project-1---particle-catalogue)
 
 
 
@@ -47,7 +51,7 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
 ---
 
-  #### **Project 1: Measuring Production Asymmetry of Neutral Charm Mesons From LHCb Run2.**
+  #### 📗 Project 1: Measuring Production Asymmetry of Neutral Charm Mesons
   
   - [Github Repository](https://github.com/sjtaylor-9/LHCb-D0-asymmetry)
   - [Semester 1 MPhys Report](Python/Report/Masters_S1.pdf)
@@ -59,7 +63,7 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
 ---
 
-#### **Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons From LHCb Run2.**
+#### 📗 Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons
   
   - [Github Repository](https://github.com/sjtaylor-9/LHCb-D0-asymmetry-2)
   - [Semester 2 MPhys Report](Python/Report/Masters_S2.pdf)
@@ -87,17 +91,17 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
   ### 📗 SQL Projects
 
-  - 💳 **Project 1 - Credit Card Fraud SQL Analysis**
+  #### 💳 Project 1 - Credit Card Fraud SQL Analysis
   
-    - [Project README](SQL/6kyu/Projects/CreditCardFraud/)
+  - [Project README](SQL/6kyu/Projects/CreditCardFraud/)
+
+  - [CSV file of Credit Card Info](SQL/6kyu/Projects/CreditCardFraud/)
   
-    - [CSV file of Credit Card Info](SQL/6kyu/Projects/CreditCardFraud/)
-    
-    - [Project notebook](SQL/6kyu/Projects/CreditCardFraud/)
+  - [Project notebook](SQL/6kyu/Projects/CreditCardFraud/)
 
-    - [Project Report](SQL/6kyu/Projects/CreditCardFraud/)
+  - [Project Report](SQL/6kyu/Projects/CreditCardFraud/)
 
-    *Description: This dataset consists of credit card transactions in the western United States. It includes information about each transaction including customer details, the merchant and category of purchase, and whether or not the transaction was a fraud. An overview of the project is shown in the markdown file, and the analysis is conducted on a jupterlab notebook. A small report is written about the result, talking about each question answered in SQL and the results.*
+  *Description: This dataset consists of credit card transactions in the western United States. It includes information about each transaction including customer details, the merchant and category of purchase, and whether or not the transaction was a fraud. An overview of the project is shown in the markdown file, and the analysis is conducted on a jupterlab notebook. A small report is written about the result, talking about each question answered in SQL and the results.*
 
 ## C++
 
@@ -111,7 +115,7 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
 ---
 
-#### **📘Assignment 1 - Calculation of Transition Energy using Bohr's Model**
+#### 📘Assignment 1 - Calculation of Transition Energy using Bohr's Model
   
   - [Project Repository](https://github.com/Laxman416/Cpp_Assignments/tree/main/Assignment-1)
 
@@ -126,7 +130,7 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
 ---
 
-#### **📘Assignment 2 - Computation of Course Mean, Standard Deviation, and Standard Error from File**
+#### 📘 Assignment 2 - Computation of Course Mean, Standard Deviation, and Standard Error from File
 
   - [Project Repository](https://github.com/Laxman416/Cpp_Assignments/tree/main/Assignment-2)
 
@@ -141,10 +145,10 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
 ---
 
-#### **📘Assignment 3 - Classes in C++**
+#### 📘 Assignment 3 - Classes in C++
 
   - [Project Repository](https://github.com/Laxman416/Cpp_Assignments/tree/main/Assignment-3)
-  - [Project Requirements Powerpoint](https://github.com/Laxman416/Cpp_Assignments/blob/main/Assignment-3/CPP%20-%20Assignment%203%20-%202024(1).pdf)
+  - [Project Powerpoint](https://github.com/Laxman416/Cpp_Assignments/blob/main/Assignment-3/CPP%20-%20Assignment%203%20-%202024(1).pdf)
 
  **Key Skills Demonstrated**
 
@@ -156,6 +160,53 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
 ---
 
+#### 📘 Assignment 4 - Overloading Special Functions and Operators
+
+  - [Project Repository](https://github.com/Laxman416/Cpp_Assignments/tree/main/Assignment-4)
+  - [Project Powerpoint](https://github.com/Laxman416/Cpp_Assignments/blob/main/Assignment-4/CPP%20-%20Assignment%204%20-%202024%20(2).pdf)
+
+ **Key Skills Demonstrated**
+
+ - OOP: Constructors, Destructors and Operators
+ - Dynamic Memory Managment with `std::vector`
+ - Overloaded + for summing two vectors.
+
+ *Description: In this assignment, you will implement a C++ class for particles using four-momentum vectors, incorporating dynamic memory management and input validation. Key tasks include creating constructors, assignment operators, and overloaded functions for summing and calculating the dot product of four-momentum vectors. This assignment emphasizes effective use of object-oriented principles and memory management techniques.*
+
+---
+
+#### 📘 Assignment 5 - Practicing inheritance, smart pointers and friendship 
+
+  - [Project Repository](https://github.com/Laxman416/Cpp_Assignments/tree/main/Assignment-5)
+  - [Project Powerpoint](https://github.com/Laxman416/Cpp_Assignments/blob/main/Assignment-5/CPP%20-%20Assignment%205%20-%202024%20-%20Updated.pdf)
+
+ **Key Skills Demonstrated**
+
+ - OOP: Inheritance and Composition
+ - Smart Pointers
+ - User-defined Operators and Constructors
+ - Implementation of Friend Functions for Data Interactions
+
+ *Description: In this assignment, you will refine your particle class by creating a dedicated four-momentum class and incorporating smart pointers. The assignment involves building an inheritance chain for leptons (electrons, muons, neutrinos, and taus), implementing specific properties, and utilizing friend functions for summing and dot product operations on four-vectors. This project emphasizes effective coding practices and the application of advanced C++ features.*
+
   ### 📗 C++ Projects 
 
+---
 
+  #### 📗 Project 1 - Particle Catalogue
+
+  - [Project Repository](https://github.com/Laxman416/Cpp_Assignments/tree/main/Particle-Catalogue)
+  - [Project Powerpoint](https://github.com/Laxman416/Cpp_Assignments/blob/main/Particle-Catalogue/CPP%20-%20Projects%20Description%20-%202024.pdf)
+  - [Project Report](https://github.com/Laxman416/Cpp_Assignments/blob/main/Particle-Catalogue/C__%20(1).pdf)
+
+  **Key Skills Demonstrated**
+
+  - OOP: Complex heriarchy
+  - Rule of Five: Resource Management - unique pointers - enhancing memory safety
+  - Template: flexible ParticleCatalogue class
+  - std::map for efficient storage and retrieval of particle objects
+  - Advanced C++ Features: Smart pointers and Operator Overloading
+
+  *Description: The project focuses on the design and implementation of a particle class hierarchy in C++ to catalogue sub-atomic particles and their decay modes based on the principles of the Standard Model (SM). An abstract base class, `Particle`, serves as the foundation for derived classes representing various particle types, including Bosons, Leptons, and Quarks. Each derived class implements unique properties and behaviors pertinent to the specific particle, adhering to the "Rule of Five" for resource management. The project features a comprehensive `ParticleCatalogue` template class, which utilizes a `std::map` to store particle objects, allowing for efficient access and organization.*
+
+  *Physical properties, such as four-momentum, are validated using Einstein's equation to ensure accuracy in simulations. The implementation captures the complexity of particle interactions and decays, including detailed branching processes for particles like the tau lepton. The project's architecture emphasizes encapsulation, data integrity, and advanced C++ programming techniques, resulting in a robust framework for simulating particle physics phenomena. Overall, the project effectively demonstrates the application of theoretical concepts from particle physics through practical programming in C++.*
