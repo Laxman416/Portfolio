@@ -25,6 +25,9 @@
     - [📘 Assignment 5 - Practicing inheritance, smart pointers and friendship](#-assignment-5---practicing-inheritance-smart-pointers-and-friendship)
   - [📗 C++ Projects](#-c-projects)
     - [📗 Project 1 - Particle Catalogue](#-project-1---particle-catalogue)
+- [Tableau](#tableau)
+  - [📓 Tableau Notes](#-tableau-notes)
+  - [📗 Tableau Projects](#-tableau-projects)
 
 
 
@@ -210,3 +213,13 @@ These assessments test my attention to detail, testing for syntax and logic erro
   *Description: The project focuses on the design and implementation of a particle class hierarchy in C++ to catalogue sub-atomic particles and their decay modes based on the principles of the Standard Model (SM). An abstract base class, `Particle`, serves as the foundation for derived classes representing various particle types, including Bosons, Leptons, and Quarks. Each derived class implements unique properties and behaviors pertinent to the specific particle, adhering to the "Rule of Five" for resource management. The project features a comprehensive `ParticleCatalogue` template class, which utilizes a `std::map` to store particle objects, allowing for efficient access and organization.*
 
   *Physical properties, such as four-momentum, are validated using Einstein's equation to ensure accuracy in simulations. The implementation captures the complexity of particle interactions and decays, including detailed branching processes for particles like the tau lepton. The project's architecture emphasizes encapsulation, data integrity, and advanced C++ programming techniques, resulting in a robust framework for simulating particle physics phenomena. Overall, the project effectively demonstrates the application of theoretical concepts from particle physics through practical programming in C++.*
+
+## Tableau
+
+  A collection of notes and challenges for analytics using Tableau. This section includes various notes on creating, filtering graphs on Tableau.
+
+  ### 📓 Tableau Notes
+  - [Tableau's Basic Notes](Tableau/Notes/Introduction%20to%20Tableau.md) 
+  - *Description: The notes are adapted from the DataCamp course "Introduction to Tableau" and cover the essential steps for navigating Tableau, building and customizing visualizations, and conducting advanced data exploration, including predictive trends.*
+
+  ### 📗 Tableau Projects
