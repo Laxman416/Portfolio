@@ -2,7 +2,7 @@
 
 SQL is used for managing and manipulating databases. Allows to store, retrieve, update and delete data.
 MySQL Workbench is an app for SQL.
-
+Tableau
 - [Database Basics](#database-basics)
 - [SQL Keywords](#sql-keywords)
 - [SQL Syntax](#sql-syntax)
