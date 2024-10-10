@@ -32,3 +32,9 @@ The project aims to identify key trends in credit card fraud, focusing on metric
 - Any specific cities where fraud is more prevalent?
 
 - Are fraudulent transactions more likely to be declined? and can this be improved?
+
+- Which states have the highest average transaction amounts in fraudulent cases?
+
+- What is the average time of day that fraudulent transactions occur?
+
+- Are there specific merchants that show repeated fraud attempts?

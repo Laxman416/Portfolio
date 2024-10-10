@@ -18,7 +18,7 @@
   - [📓 C++ Notes](#-c-notes)
   - [⚔️ C++ CodeWars Challenges](#️-c-codewars-challenges)
   - [📘 C++ Assignments](#-c-assignments)
-    - [📘Assignment 1 - Calculation of Transition Energy using Bohr's Model](#assignment-1---calculation-of-transition-energy-using-bohrs-model)
+    - [📘 Assignment 1 - Calculation of Transition Energy using Bohr's Model](#-assignment-1---calculation-of-transition-energy-using-bohrs-model)
     - [📘 Assignment 2 - Computation of Course Mean, Standard Deviation, and Standard Error from File](#-assignment-2---computation-of-course-mean-standard-deviation-and-standard-error-from-file)
     - [📘 Assignment 3 - Classes in C++](#-assignment-3---classes-in-c)
     - [📘 Assignment 4 - Overloading Special Functions and Operators](#-assignment-4---overloading-special-functions-and-operators)
@@ -96,13 +96,13 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
   #### 💳 Project 1 - Credit Card Fraud SQL Analysis
   
-  - [Project README](SQL/6kyu/Projects/CreditCardFraud/)
+  - [Project README](SQL/Projects/CreditCardFraud/CreditCardFraud-README.md)
 
-  - [CSV file of Credit Card Info](SQL/6kyu/Projects/CreditCardFraud/)
+  - [CSV file of Credit Card Info](SQL/Projects/CreditCardFraud/credit_card_fraud.csv)
   
-  - [Project notebook](SQL/6kyu/Projects/CreditCardFraud/)
+  - [Project notebook](SQL/Projects/CreditCardFraud/CreditCardFraud_notebook.ipynb)
 
-  - [Project Report](SQL/6kyu/Projects/CreditCardFraud/)
+  - [Project Report](SQL/Projects/CreditCardFraud/)
 
   *Description: This dataset consists of credit card transactions in the western United States. It includes information about each transaction including customer details, the merchant and category of purchase, and whether or not the transaction was a fraud. An overview of the project is shown in the markdown file, and the analysis is conducted on a jupterlab notebook. A small report is written about the result, talking about each question answered in SQL and the results.*
 
@@ -118,7 +118,7 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
 ---
 
-#### 📘Assignment 1 - Calculation of Transition Energy using Bohr's Model
+#### 📘 Assignment 1 - Calculation of Transition Energy using Bohr's Model
   
   - [Project Repository](https://github.com/Laxman416/Cpp_Assignments/tree/main/Assignment-1)
 
