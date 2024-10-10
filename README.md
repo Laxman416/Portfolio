@@ -9,6 +9,7 @@
   - [📗 Python Projects](#-python-projects)
     - [📗 Project 1: Measuring Production Asymmetry of Neutral Charm Mesons](#-project-1-measuring-production-asymmetry-of-neutral-charm-mesons)
     - [📗 Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons](#-project-2-extended-study-on-measuring-production-asymmetry-of-neutral-charm-mesons)
+  - [📄 Python Certification](#-python-certification)
 - [SQL](#sql)
   - [📓 SQL Notes](#-sql-notes)
   - [⚔️ SQL CodeWars Challenges](#️-sql-codewars-challenges)
@@ -76,6 +77,10 @@ These assessments test my attention to detail, testing for syntax and logic erro
                   This project focused on increasing the dataset, creating a new model for the larger dataset, modelling the detection asymmetry and creating a simulation to compare the actual results with simulated results.*
 
     * Key Libraries Used: matplotlib, argparse, pandas, ROOT, NumPy, SciPy
+
+  ### 📄 Python Certification
+  
+  - Associate Data Scientist in Python from Datacamp [README](Python/Notes/Associate%20Data%20Scientist%20Certification.md) - NOT COMPLETE
   
 ## SQL
 
