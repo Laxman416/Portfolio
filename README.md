@@ -14,7 +14,7 @@
   - [📓 SQL Notes](#-sql-notes)
   - [⚔️ SQL CodeWars Challenges](#️-sql-codewars-challenges)
   - [📗 SQL Projects](#-sql-projects)
-    - [💳 Project 1 - Credit Card Fraud SQL Analysis](#-project-1---credit-card-fraud-sql-analysis)
+    - [💳 Project 1 - Credit Card Fraud SQL/Tableau Analysis](#-project-1---credit-card-fraud-sqltableau-analysis)
 - [C++](#c)
   - [📓 C++ Notes](#-c-notes)
   - [⚔️ C++ CodeWars Challenges](#️-c-codewars-challenges)
@@ -29,6 +29,7 @@
 - [Tableau](#tableau)
   - [📓 Tableau Notes](#-tableau-notes)
   - [📗 Tableau Projects](#-tableau-projects)
+    - [💳 Project 1 - Credit Card Fraud SQL/Tableau Analysis](#-project-1---credit-card-fraud-sqltableau-analysis-1)
 
 
 
@@ -44,6 +45,9 @@ These assessments test my attention to detail, testing for syntax and logic erro
   A collection of notes and challenges for Python programming. This section includes various notes on syntax, libraries, and best practices. 
 
   ### 📓 Python Notes
+
+  - [Introduction to Python](Python/Notes/Introduction%20to%20Python.md) 
+  - [Pandas' Notes](Python/Notes/Pandas%20Notes.md)
 
   ### ⚔️ Python CodeWars Challenges 
 
@@ -80,8 +84,10 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
   ### 📄 Python Certification
   
-  - Associate Data Scientist in Python from Datacamp [README](Python/Notes/Associate%20Data%20Scientist%20Certification.md) - NOT COMPLETE
+  - Associate Data Scientist in Python from Datacamp [README](Python/Notes/Associate%20Data%20Scientist%20Certification.md) - NOT COMPLETED YET
   
+  *Description: 23 Courses, 11 projects, 3 timed assessments.*
+
 ## SQL
 
   A collection of notes and challenges for SQL programming. This section includes various notes on syntax, table relationships, and databases.
@@ -99,7 +105,7 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
   ### 📗 SQL Projects
 
-  #### 💳 Project 1 - Credit Card Fraud SQL Analysis
+  #### 💳 Project 1 - Credit Card Fraud SQL/Tableau Analysis
   
   - [Project README](SQL/Projects/CreditCardFraud/CreditCardFraud-README.md)
 
@@ -107,7 +113,7 @@ These assessments test my attention to detail, testing for syntax and logic erro
   
   - [Project notebook](SQL/Projects/CreditCardFraud/CreditCardFraud_notebook.ipynb)
 
-  - [Project Report](SQL/Projects/CreditCardFraud/)
+  - [Project Report](SQL/Projects/CreditCardFraud/) - NOT COMPLETED YET
 
   *Description: This dataset consists of credit card transactions in the western United States. It includes information about each transaction including customer details, the merchant and category of purchase, and whether or not the transaction was a fraud. An overview of the project is shown in the markdown file, and the analysis is conducted on a jupterlab notebook. A small report is written about the result, talking about each question answered in SQL and the results.*
 
@@ -228,3 +234,13 @@ These assessments test my attention to detail, testing for syntax and logic erro
   - *Description: The notes are adapted from the DataCamp course "Introduction to Tableau" and cover the essential steps for navigating Tableau, building and customizing visualizations, and conducting advanced data exploration, including predictive trends.*
 
   ### 📗 Tableau Projects
+  
+  #### 💳 Project 1 - Credit Card Fraud SQL/Tableau Analysis
+
+  - [Project README](SQL/Projects/CreditCardFraud/CreditCardFraud-README.md)
+
+  - [CSV file of Credit Card Info](SQL/Projects/CreditCardFraud/credit_card_fraud.csv)
+  
+  - [Project notebook](SQL/Projects/CreditCardFraud/CreditCardFraud_notebook.ipynb)
+
+  - [Project Report](SQL/Projects/CreditCardFraud/) - NOT COMPLETED YET

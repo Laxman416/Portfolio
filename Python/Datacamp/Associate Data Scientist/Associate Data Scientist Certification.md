@@ -9,13 +9,13 @@
     - [Introduction to Python](#introduction-to-python)
     - [Intermediate Python](#intermediate-python)
     - [Project 1: Investigating Netflix Movies](#project-1-investigating-netflix-movies)
-  - [Data Manipulation with pandas](#data-manipulation-with-pandas)
+    - [Data Manipulation with Pandas](#data-manipulation-with-pandas)
 
 ### Introduction to Python
 
 Basics of Python - 4 hours.
 
-Chapters:
+**Chapters:**
 - Python Basics
 - Python Lists
 - Functions and Packages
@@ -23,7 +23,7 @@ Chapters:
 
 ### Intermediate Python
 
-Chapters:
+**Chapters:**
 - Matplotlib
 - Dictionaries & Pandas
 - Logic, Control Flow, and Filtering
@@ -34,4 +34,13 @@ Chapters:
 
 Apply knowledge from chapters above to manipulate and visualise movie data.
 
-## Data Manipulation with pandas
+[Project Notebook](../Associate%20Data%20Scientist/Netflix_Movies/Project%201%20-%20Netflix.ipynb) - *Description: Completed Project 1*
+
+### Data Manipulation with Pandas
+
+**Chapters:**
+- Transforming DataFrames
+- Aggregating DataFrames
+- Slicing and Indexing DataFrames
+- Creating and Visualising DataFrames
+
