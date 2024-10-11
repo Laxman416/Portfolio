@@ -84,7 +84,8 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
   ### 📄 Python Certification
   
-  - Associate Data Scientist in Python from Datacamp [README](Python/Notes/Associate%20Data%20Scientist%20Certification.md) - NOT COMPLETED YET
+  - Associate Data Scientist in Python from Datacamp [README](Python/Datacamp/Associate%20Data%20Scientist/Associate%20Data%20Scientist%20Certification.md) - NOT COMPLETED YET
+
   
   *Description: 23 Courses, 11 projects, 3 timed assessments.*
 
