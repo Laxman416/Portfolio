@@ -113,7 +113,7 @@ uniform.rvs(0,5, size=10) -> 'generates random values'
 ```python
 from scipy.stats import binom
 
-binom.rvs(num_of_item, prob_success(p), how_many_times(n))
+binom.rvs(size = num_of_item, prob_success(p), how_many_times(n))
 
 binom.pmf(value,n,p) -> gives prob(x = value) 
 ```
@@ -135,6 +135,9 @@ from scipy.stats import norm
 norm.cdf(value, mean, std) -> prob(x <= value)
 
 norm.rvs(mean, std, num_generated) -> generates rand numbers
+
+pct_25 = norm.ppf(percentile,mean,std) -> prob. value
+
 ```
 
 ### The Central Limit Theorem
@@ -145,7 +148,7 @@ as # of trials increases, closer to normal dist.
 
 ### Poison Distributions
 
-Poisson process: certain rate(time) but random
+Poisson process: certain rate(time) but random -> mean
 
 lambda = average rate
 
