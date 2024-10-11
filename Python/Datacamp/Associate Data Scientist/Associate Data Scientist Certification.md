@@ -12,6 +12,12 @@
     - [Data Manipulation with Pandas](#data-manipulation-with-pandas)
     - [Project 2 - Exploring Test Scores with Pandas:](#project-2---exploring-test-scores-with-pandas)
     - [Joining Data with Pandas](#joining-data-with-pandas)
+    - [Introduction to Statistics](#introduction-to-statistics)
+    - [Introduction to Data Visualisation with Matplotlib](#introduction-to-data-visualisation-with-matplotlib)
+    - [Introduction to Data Visualisation with Seaborn](#introduction-to-data-visualisation-with-seaborn)
+    - [Project 3: Visualisation History of Nobel Prize Winners](#project-3-visualisation-history-of-nobel-prize-winners)
+    - [Introduction to Functions in Python](#introduction-to-functions-in-python)
+    - [Python Toolbox](#python-toolbox)
 
 ### Introduction to Python
 
@@ -62,3 +68,43 @@ Apply knowledge from chapters above to manipulate and visualise movie data.
 - Merging Tables with different Join Types
 - Advanced Merging and Concatenating
 - Merging Ordered and Time-Series Data
+
+### Introduction to Statistics 
+
+**Chapters:**
+- Summary Statistics
+- Random Numbers and Probability
+- More Distributions and CLT
+- Corelation and Experimental Design 
+
+### Introduction to Data Visualisation with Matplotlib
+
+**Chapters:**
+- Introduction to Matplotlib
+- Plotting time-series
+- Quantitative comparisons and statistical visualisations
+- Sharing visualisations with others
+
+### Introduction to Data Visualisation with Seaborn
+
+**Chapters:**
+- Introduction to Seaborn
+- Visualising Two Quantitative Variables
+- Visualising a Catergorical and a Quantitative Variable
+- Customising Seaborn Plots
+
+### Project 3: Visualisation History of Nobel Prize Winners
+
+
+
+### Introduction to Functions in Python
+
+**Chapters:**
+- Writing Functions
+- Default arguments, variable-lent arguements, and scope
+- Lambda fn and Error handling
+  
+### Python Toolbox
+- Using Iterators
+- List comprehensions and generators
+  
