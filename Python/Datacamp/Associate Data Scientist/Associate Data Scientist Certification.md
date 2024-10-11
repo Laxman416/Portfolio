@@ -56,3 +56,9 @@ Apply knowledge from chapters above to manipulate and visualise movie data.
 [Project Notebook](../Associate%20Data%20Scientist/School%20Results/Project%202%20-%20School%20Results.ipynb) - *Description: Completed Project 1*
 
 ### Joining Data with Pandas
+
+**Chapters:**
+- Data Merging Basics
+- Merging Tables with different Join Types
+- Advanced Merging and Concatenating
+- Merging Ordered and Time-Series Data
