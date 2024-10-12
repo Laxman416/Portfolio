@@ -86,8 +86,13 @@ These assessments test my attention to detail, testing for syntax and logic erro
   
   - Associate Data Scientist in Python from Datacamp [README](Python/Datacamp/Associate%20Data%20Scientist/Associate%20Data%20Scientist%20Certification.md) - NOT COMPLETED YET
 
-  
   *Description: 23 Courses, 11 projects, 3 timed assessments.*
+  
+- Acquired skills in data manipulation and analysis using Pandas and NumPy for efficient data handling and processing.
+- Gained experience in data visualization with Matplotlib and Seaborn, creating insightful graphics to communicate findings.
+- Learned statistical analysis techniques, including hypothesis testing and regression analysis, to derive meaningful insights from datasets.
+- Developed machine learning fundamentals, applying algorithms such as linear regression and classification models using scikit-learn.
+- Completed hands-on projects analysing real-world datasets, enhancing problem-solving abilities and effective communication of analytical results.
 
 ## SQL
 
