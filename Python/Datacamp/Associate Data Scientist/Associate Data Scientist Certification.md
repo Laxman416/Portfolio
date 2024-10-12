@@ -42,7 +42,7 @@ Basics of Python - 4 hours.
 
 Apply knowledge from chapters above to manipulate and visualise movie data.
 
-[Project Notebook](../Associate%20Data%20Scientist/Netflix_Movies/Project%201%20-%20Netflix.ipynb) - *Description: Completed Project 1*
+[Project Notebook](../Associate%20Data%20Scientist/Projects/Netflix_Movies/Project%201%20-%20Netflix.ipynb) - *Description: Completed Project 1*
 
 ### Data Manipulation with Pandas
 
@@ -59,7 +59,7 @@ Apply knowledge from chapters above to manipulate and visualise movie data.
 - New column creation (e.g., computing total SAT score from math, reading, and writing).
 - Identifying insights (e.g., finding schools with top math performance and boroughs with largest SAT score variability).
 
-[Project Notebook](../Associate%20Data%20Scientist/School%20Results/Project%202%20-%20School%20Results.ipynb) - *Description: Completed Project 1*
+[Project Notebook](../Associate%20Data%20Scientist/Projects/School%20Results/Project%202%20-%20School%20Results.ipynb) - *Description: Project 2 Notebook in jupyternotebook with notes and code.*
 
 ### Joining Data with Pandas
 
@@ -95,16 +95,26 @@ Apply knowledge from chapters above to manipulate and visualise movie data.
 
 ### Project 3: Visualisation History of Nobel Prize Winners
 
+library `pandas` used
+
+**Techniques:***
+- slicing
+- merging
+- indexing
+- aggregation
+
+[Project Notebook](../Associate%20Data%20Scientist/Projects/Nobel%20Prizes/nobel_notebook.ipynb) - *Description: Project 3 Notebook in jupyternotebook with notes and code.*
 
 
 ### Introduction to Functions in Python
 
 **Chapters:**
 - Writing Functions
-- Default arguments, variable-lent arguements, and scope
+- Default arguments, variable-lent arguments, and scope
 - Lambda fn and Error handling
   
 ### Python Toolbox
+
 - Using Iterators
 - List comprehensions and generators
   

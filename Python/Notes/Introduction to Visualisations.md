@@ -210,7 +210,7 @@ countplot: `sns.countplot(x,data=df)`
 
 ### Adding a Third Variable with Hue
 
-parameter: `hue = 'column', hue_order = ['','']`
+parameter: `hue = 'column', hue_order = ['',''], palette`
 ```
 hue_colors = {'Yes': "black",
               'No': "red"}
