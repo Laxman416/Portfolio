@@ -18,6 +18,9 @@
     - [Project 3: Visualisation History of Nobel Prize Winners](#project-3-visualisation-history-of-nobel-prize-winners)
     - [Introduction to Functions in Python](#introduction-to-functions-in-python)
     - [Python Toolbox](#python-toolbox)
+    - [Exploratory Data Analysis](#exploratory-data-analysis)
+    - [Project 4](#project-4)
+    - [Working with Categorical Data in Python](#working-with-categorical-data-in-python)
 
 ### Introduction to Python
 
@@ -115,6 +118,33 @@ library `pandas` used
   
 ### Python Toolbox
 
+**Chapters:**
 - Using Iterators
 - List comprehensions and generators
-  
+
+### Exploratory Data Analysis
+
+**Chapters:**
+- Introduction
+- Data Cleaning and Imputation
+- Relationships in Data
+- EDA
+
+### Project 4
+
+library `pandas` used
+
+**Techniques:***
+- Data Binning
+- Data Analysis
+
+
+[Project Notebook](../Associate%20Data%20Scientist/Projects/Crimes/Crimes%20Notebook.ipynb) - *Description: Project 3 Notebook in jupyternotebook with notes and code.*
+
+### Working with Categorical Data in Python
+
+**Chapters:**
+- Introduction
+- Categorical Panda Series
+- Visualising Categorical Series
+- Pitfalls and Encoding

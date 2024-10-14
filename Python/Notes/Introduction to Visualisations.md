@@ -202,7 +202,7 @@ Course on Datacamp 'Introduction to Data Visualisation with Seaborn'
 
 scatterplot: `sns.scatterplot(x)`
 countplot: `sns.countplot(x)`
-
+hist: `sns.histplot()`
 ### Using Pandas with Seaborn
 
 scatterplot: `sns.scatterplot(x,y,data = df)`
@@ -245,6 +245,7 @@ sns.replot(x,y,data,kind = 'scatter',col/row = 'column' )
   
 ### Introduction to Line Plots
 
+`sns.lineplot()`
 over time
 **parameter:**
 - `kind = 'line'`
