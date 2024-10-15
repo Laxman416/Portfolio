@@ -21,6 +21,7 @@
     - [Exploratory Data Analysis](#exploratory-data-analysis)
     - [Project 4](#project-4)
     - [Working with Categorical Data in Python](#working-with-categorical-data-in-python)
+    - [Project 5](#project-5)
 
 ### Introduction to Python
 
@@ -139,7 +140,7 @@ library `pandas` used
 - Data Analysis
 
 
-[Project Notebook](../Associate%20Data%20Scientist/Projects/Crimes/Crimes%20Notebook.ipynb) - *Description: Project 3 Notebook in jupyternotebook with notes and code.*
+[Project Notebook](../Associate%20Data%20Scientist/Projects/Crimes/Crimes%20Notebook.ipynb) - *Description: Project 4 Notebook in jupyternotebook with notes and code.*
 
 ### Working with Categorical Data in Python
 
@@ -148,3 +149,15 @@ library `pandas` used
 - Categorical Panda Series
 - Visualising Categorical Series
 - Pitfalls and Encoding
+- 
+### Project 5
+
+library `pandas` used
+
+**Techniques:***
+- Data Type Conversion
+- Filtering by Categories
+- Ordinal / Nominal Categories
+- Mapping Strings to Booleans
+
+[Project Notebook](../Associate%20Data%20Scientist/Projects/Train%20-%20Categorical%20Data/Category%20Pandas%20Project.ipynb) - *Description: Project 5 Notebook in jupyternotebook with notes and code.*
