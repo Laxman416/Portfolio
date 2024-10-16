@@ -22,6 +22,9 @@
     - [Project 4](#project-4)
     - [Working with Categorical Data in Python](#working-with-categorical-data-in-python)
     - [Project 5](#project-5)
+    - [Introduction to Importing Data in Python](#introduction-to-importing-data-in-python)
+    - [Cleaning Data in Python](#cleaning-data-in-python)
+    - [Project 6](#project-6)
 
 ### Introduction to Python
 
@@ -161,3 +164,23 @@ library `pandas` used
 - Mapping Strings to Booleans
 
 [Project Notebook](../Associate%20Data%20Scientist/Projects/Train%20-%20Categorical%20Data/Category%20Pandas%20Project.ipynb) - *Description: Project 5 Notebook in jupyternotebook with notes and code.*
+
+### Introduction to Importing Data in Python
+
+**Chapters:**
+- Introduction and flat files
+- Importing data from other file types
+- Working with relational databases in Python
+
+### Cleaning Data in Python
+
+**Chapters:**
+- Common data problems
+- Text and categorical data problems
+- Advanced problems
+- Record Linkage
+
+### Project 6
+
+Exploring Airbnb
+
