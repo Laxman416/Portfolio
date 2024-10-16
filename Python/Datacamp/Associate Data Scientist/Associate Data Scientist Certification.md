@@ -184,3 +184,12 @@ library `pandas` used
 
 Exploring Airbnb
 
+library `pandas` used
+
+**Techniques:***
+- Data Cleaning
+  - Strings
+  - Datetime
+  - remove all except int
+- Creating Df
+
