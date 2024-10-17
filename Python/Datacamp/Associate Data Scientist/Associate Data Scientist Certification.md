@@ -25,6 +25,10 @@
     - [Introduction to Importing Data in Python](#introduction-to-importing-data-in-python)
     - [Cleaning Data in Python](#cleaning-data-in-python)
     - [Project 6](#project-6)
+    - [Working with Datetime in Python](#working-with-datetime-in-python)
+    - [Writing Fn in Python](#writing-fn-in-python)
+    - [Introduction to Regression with Statsmodels in python](#introduction-to-regression-with-statsmodels-in-python)
+    - [Project 7](#project-7)
 
 ### Introduction to Python
 
@@ -193,3 +197,18 @@ library `pandas` used
   - remove all except int
 - Creating Df
 
+### Working with Datetime in Python
+
+**Chapters:**
+- Dates and Calenders
+- Combining Dates and Times
+- Time Zones
+- Pandas Datetime
+
+### Writing Fn in Python
+
+### Introduction to Regression with Statsmodels in python
+
+### Project 7
+
+Modelling Car Insurance Claim Outcomes

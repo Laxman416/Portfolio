@@ -65,6 +65,8 @@ data = np.read_csv(filename, skiprows)
 with open('', 'rb') as filename: #read only binary
     data = pickle.load(filename)
 
+
+df = pd.read_picke('') # pandas pickle
 ```
 
 **Importing Excel files:**

@@ -94,6 +94,10 @@ imputing by sub-group
 df_dict = df.groupby('column')['column'].median.to_dict()
 df[column] = df[column].fillna(df[experience].map(df_dict))
 ```
+
+```python
+df.fillna(method = 'ffill') -> #fills last value for NaN
+```
 ### Converting and analysing categorical data
 
 Extracting value from categories - `df[''].str.contains('Scientist|AI')`
