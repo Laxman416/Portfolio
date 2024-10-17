@@ -1,6 +1,8 @@
-# Introduction to Data Visualisation with Matplotlib
+# Data Visualisations <!-- omit in toc -->
 
-Course on Datacamp on 'Introduction to Data Visualisation with Matplotlib'
+**Course on Datacamp:**<br> 
+`'Introduction to Data Visualisation with Matplotlib'`<br> 
+`'Introduction to Data Visualisation with Seaborn'`<br> 
 
 - [Introduction to Data Visualisation with Matplotlib](#introduction-to-data-visualisation-with-matplotlib)
   - [Introduction to Matplotlib](#introduction-to-matplotlib)
@@ -37,6 +39,9 @@ Course on Datacamp on 'Introduction to Data Visualisation with Matplotlib'
     - [Changing plot style and colour](#changing-plot-style-and-colour)
     - [Adding Titles and Labels: I](#adding-titles-and-labels-i)
     - [Adding Titles and Labels: II](#adding-titles-and-labels-ii)
+
+
+# Introduction to Data Visualisation with Matplotlib
 
 ## Introduction to Matplotlib
  

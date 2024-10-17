@@ -1,6 +1,50 @@
-# Data Manipulation with pandas 
+# Data Manipulation <!-- omit in toc -->
 
-Course on Datacamp - 'Data Manipulation with pandas' and 'Joining Data with Pandas'
+**Course on Datacamp:**<br> 
+`'Data Manipulation with pandas'`<br> 
+`'Joining Data with Pandas'`<br> 
+
+- [Data Manipulation with pandas](#data-manipulation-with-pandas)
+  - [Transforming DataFrames](#transforming-dataframes)
+    - [Introducing DataFrames](#introducing-dataframes)
+    - [Sorting and Subsetting](#sorting-and-subsetting)
+    - [New Columns/ Transforming DF](#new-columns-transforming-df)
+  - [Aggregating DF](#aggregating-df)
+    - [Summary Statistics](#summary-statistics)
+    - [Counting](#counting)
+    - [Grouped summary statistics](#grouped-summary-statistics)
+    - [Pivot Table](#pivot-table)
+  - [Slicing and Indexing DataFrames](#slicing-and-indexing-dataframes)
+    - [Explicit Indexes](#explicit-indexes)
+    - [Slicing and Subsetting with .loc and .iloc](#slicing-and-subsetting-with-loc-and-iloc)
+    - [Working with Pivot Tables](#working-with-pivot-tables)
+  - [Creating and Visualising DF](#creating-and-visualising-df)
+    - [Visualise your Data](#visualise-your-data)
+    - [Missing Values](#missing-values)
+    - [Creating DF](#creating-df)
+    - [Reading and Writing CSV](#reading-and-writing-csv)
+- [Joining Data with Pandas](#joining-data-with-pandas)
+  - [Data Merging Basics](#data-merging-basics)
+    - [Inner Join](#inner-join)
+    - [One to Many Relationship](#one-to-many-relationship)
+    - [Merging multiple DF](#merging-multiple-df)
+  - [Merging DF with Different Join Types](#merging-df-with-different-join-types)
+    - [Left JOIN](#left-join)
+    - [Other JOIN](#other-join)
+    - [Self JOIN](#self-join)
+    - [Merging on Indexes](#merging-on-indexes)
+  - [Advanced Merging and Concatenating](#advanced-merging-and-concatenating)
+    - [Filtering JOINS](#filtering-joins)
+    - [Concatenate DF Vertically](#concatenate-df-vertically)
+    - [Verifying integrity](#verifying-integrity)
+  - [Merging Ordered and Time-Series Data](#merging-ordered-and-time-series-data)
+    - [Using merge\_ordered()](#using-merge_ordered)
+    - [Using merge\_asof()](#using-merge_asof)
+    - [Selecting data with .query()](#selecting-data-with-query)
+    - [Reshaping data with .melt()](#reshaping-data-with-melt)
+
+
+# Data Manipulation with pandas 
 
 ## Transforming DataFrames
 
@@ -363,3 +407,4 @@ df_tall = df.melt(id_vars = ['column1', 'column2'])
 - id_vars: columns you dont want to melt
 - value_vars =` ['variable','variable '] ` selects which variables you want to show
 - change title: `var_name = ''`, `value_name = ''` 
+

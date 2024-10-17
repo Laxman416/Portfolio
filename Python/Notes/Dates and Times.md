@@ -1,6 +1,7 @@
 # Dates and Times
 
-Course on DataCamp - `Working with Dates and Times in Python`
+**Course on DataCamp:**
+`Working with Dates and Times in Python`
 
 - [Dates and Times](#dates-and-times)
   - [Dates and Calenders](#dates-and-calenders)
