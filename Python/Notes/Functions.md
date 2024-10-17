@@ -13,7 +13,7 @@ Returns:
 """
 
 `/__.doc__`
-
+`inspect.getdoc()`
 **Dont Repeat and Do One Thing**
 
 pass by assignment
@@ -123,7 +123,7 @@ When to use:
 Metadata:
 use `from functools import wraps`
 
-easy access to undecorated fn using `__.wrapper__`
+easy access to undecorated fn using `__.wrapped__`
 
 **Decorators that take arguments**
 
