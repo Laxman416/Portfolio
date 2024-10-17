@@ -46,8 +46,14 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
   ### 📓 Python Notes
 
-  - [Introduction to Python](Python/Notes/Introduction%20to%20Python.md) 
-  - [Pandas' Notes](Python/Notes/Pandas%20Notes.md)
+  - [Python Fundamentals](Python/Notes/Python%20Fundamentals.md) 
+  - [Data Manipulation](Python/Notes/Data%20Manipulation.md)
+  - [Data Cleaning and Importing](Python/Notes/Data%20Cleaning%20and%20Importing.md)
+  - [Data Analysis and Exploration](Python/Notes/Data%20Analysis%20and%20Exploration.md)
+  - [Data Visualisation](Python/Notes/Data%20Visualisations.md)
+  - [Dates and Time](Python/Notes/Dates%20and%20Times.md)
+  - [Statistical Foundations: Modeling, Sampling, and Hypothesis Testing"](Python/Notes/Statistical%20Foundations%20-%20Modeling,%20Sampling,%20and%20Hypothesis%20Testing.md)
+  - [Machine Learning Techniques: Supervised and Unsupervised Learning](Python/Notes/Machine%20Learning%20Techniques%20-%20Supervised%20and%20Unsupervised%20Learning.md)
 
   ### ⚔️ Python CodeWars Challenges 
 
