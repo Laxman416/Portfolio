@@ -29,6 +29,10 @@
     - [Writing Fn in Python](#writing-fn-in-python)
     - [Introduction to Regression with Statsmodels in python](#introduction-to-regression-with-statsmodels-in-python)
     - [Project 7](#project-7)
+    - [Sampling](#sampling)
+    - [Hypothesis Testing](#hypothesis-testing)
+    - [Experimental Design in Python](#experimental-design-in-python)
+    - [Project 8](#project-8)
 
 ### Introduction to Python
 
@@ -207,8 +211,62 @@ library `pandas` used
 
 ### Writing Fn in Python
 
+**Chapters:**
+- Introduction
+- Context Managers
+- Decorators
+
 ### Introduction to Regression with Statsmodels in python
+
+**Chapters:**
+- Simple Linear Regression Modelling
+- Predictions and Model Objects
+- Assessing Model fit
+- Simple Logistic Regression Modelling
 
 ### Project 7
 
 Modelling Car Insurance Claim Outcomes
+
+library used:
+- `pandas` 
+- `matplotlib.pyplot` 
+- `seaborn` 
+- `statsmodels.formula.api import logit`
+- `missingno as msno` 
+
+**Techniques:***
+- Data Cleaning
+  - NaN
+  - types - category
+  - missingo.matrix
+- Logit to find fit
+- plot fit and data points
+
+### Sampling 
+
+**Chapters:**
+- Introduction to Sampling
+- Sampling Methods
+- Sampling Distributions
+- Bootstrap Distributions
+
+### Hypothesis Testing
+
+**Chapters:**
+- Hypothesis Testing Fundamentals
+- Two Sample and ANOVA Tests
+- Proportion Tests
+- Non-parametric Tests
+
+### Experimental Design in Python
+
+**Chapters:**
+- Experimental Design Preliminaries
+- Experimental Design Techniques
+- Analyzing Experimental Data: Statistical Tests and Power
+- Advanced Insights from Experimental Complexity
+
+### Project 8
+
+Hypothesis Testing with Men's and Women's Soccer Matches
