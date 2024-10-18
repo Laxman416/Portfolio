@@ -270,3 +270,23 @@ library used:
 ### Project 8
 
 Hypothesis Testing with Men's and Women's Soccer Matches
+
+library used:
+- `pandas` 
+- `matplotlib.pyplot` 
+- `seaborn` 
+- `from statsmodels.graphics.gofplots import qqplot`
+- `scipy.stats as stats`
+- `numpy as np`
+- `import pingouin`
+- `datetime`
+  
+**Techniques:***
+- Data Cleaning
+  - types - category
+  - datetime
+  - filter
+- plot to see if data is normalised
+- do non-parametric tests and unpaired tests between two df
+- mwu test
+- p_value/ null hypothesis

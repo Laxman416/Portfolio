@@ -295,7 +295,7 @@ pop_size = len(df)
 
 interval = pop_size // sample_size
 
-df.illoc[::interval] ## :: does systematic sampling
+df.iloc[::interval] ## :: does systematic sampling
 ```
 can introduce bias
 ``` python
@@ -314,6 +314,8 @@ df_sample = df.groupby('').sample(n = 10, random_state = int)
 
 
 ## Weighted Random Sampling
+df = df_pop.sample(n=400, weights = '')
+
 df_weight = df
 condition = df_weight[''] == ''
 
@@ -555,6 +557,7 @@ pingouin.ttest(x = df['x'].
 performing unpaired t-tests on paired data increases chance of FN errors
 
 **ANOVA tests**
+
 tests for differences between groups
 
 Visualise using box plots
@@ -585,24 +588,204 @@ In this subchapter:
 - Chi-square tests of independence
 - Chi-square goodness of fit tests
 
+**One-sample proportion sample**
+p: population proportion
+$\hat{p}$: sample proportion -> mean()
+${p_0}$: hypothesized population proportion
+z score
+$H_0 p = p_0$
 
+$$SE_{\hat{p}} = \sqrt{\frac{p_0 * (1 - p_0)}{n}}$$
+substitute into z score
+
+z instead of t:
+- less error
+
+```python
+from scipy.stats import
+
+#left tail
+p_value = norm.cdf(z_score)
+
+#right tail
+p_value = 1 - norm.cdf(z_score)
+
+#two tail
+p_value = norm.cdf(-z_score) + 1 - norm.cdf(z_score)
+#same as
+p_value = 2 * (1 - norm.cdf(z_score))
+```
+
+**two-sample proportion tests**
+comparing two parameters
+
+$\hat{p1} - \hat{p2}$
+
+$\hat{p}$ is weighted mean of $\hat{p1}$ and $\hat{p2}$
+
+```python
+from statsmodels.stats.proportion import proportions_ztest
+
+n_True_per_group = np.array[ , ]
+n_rows_per_group = np.array[ , ]
+
+z_score, p_value = proportion_ztest(count = n_True_per_group,
+                                    nobs = n_rows,
+                                    alternative = "two-sided")
+```
+
+**Chi-square tests**
+proportion tests for more than two groups
+statistical independence: proportion of success in response variable is same across all explanatory variables
+
+
+```python
+import pingouin
+expected, observed, stats = pingouin.chi2_independence(data = df,
+                                                       x = '',
+                                                       y = '',
+                                                       correction = False)
+print(stats) -> focus on pearson: chi2 and pval columns
+chi2 = z^2
+```
+e.g. `df['job_satisication']` has 5 categories
+
+H0: compare age categories are independent of job satisfaction levels
+
+```python
+props = df.groupby('job_satisfaction')['age'].value_counts(normalize = True)
+wide_props = props.unstack()
+wide_props.plot(kind = 'bar', stacked = True)
+```
+Same as asking are variables x and y independent from each other
+
+doesnt have two tailed, etc. - almost always right tailed tests
+
+**Goodness of Fit: $\Chi^2$**
+
+chi^2 how far observed are from expected
+
+```python
+from scipy.stats import chisquare
+
+chisquare(f_obs = , f_exp =)
+
+```
 
 ## Non-Parametric Tests
+
 In this subchapter:
 - Assumptions in hypothesis testing
 - Non-parametric tests
 - Non-parametric tests and unpaired t-tests
+
+Assumption:
+- assume random: sample is not representative
+- each observation independence: increased FN/FP errors
+- large sample size: Wider ci and increased FN/FP errors
+*for one sample t-test:*
+at least 30
+*for two sample t-test:*
+need 30 from each group
+*Paired samples and ANOVA:*
+at least 30
+
+*1 sample proportion tests:*
+needs 10 success and 10 failures
+
+*2 sample proportion tests:*
+needs 10 success and 10 failures from each sample
+
+*chi-square:*
+needs 5 success and failures in each group
+
+---
+or
+if bootstrap dist. doesn't look normal one of assumptions incorrect
+
+**Non-parametric tests**
+
+z-test, t-test, ANOVA are all parametric
+assumes normal dist.
+large sample
+
+non-parametric uses ranks
+Wilcoxon-signed rank test
+```python
+# calculate difference
+
+## calculate abs of difference
+
+## use rankdata() from scipy.stats import rankdata
+
+## calculate w: min of [T_minus, T_plus]
+
+pingouin.wilcoxon(x = '',
+                  y = '',
+                  alternative = less)
+```
+
+**Non-parametric ANOVA and unpaired t-tests**
+
+mwu tests
+```python
+column1_column2 = df
+column1_column2_wide = column1_column2.pivot(columns = 'column1', 
+                                             values = 'column2')
+pingouin.mwu(x=,
+             y=,
+             alternative = 'greater')
+```
+
 # Experimental Design in Python
+
 ## Experimental Design Preliminaries
+
 In this subchapter:
 - Setting up experiments
 - Experimental data setup
 - Normal data
+
+research in objective and controlled way to draw conclusions.
+
+Treatment Group 
+Control Group
+Random assignment then check with `.describe()`
+
+Covariate issues:
+Block randomization
+can use displot to visualise
+
+Confounding = variable might cause effect
+Stratified randomization:
+- split based on covariate then randomize
+
+**normal data**
+```python
+sns.displot(data = , x= , kind = 'kde')
+# plots kde to see if it looks normal
+
+from statsmodel.graphics.gofplots import qqplot
+
+qqplot(df,line = 's', dist= norm)
+```
+
+Testing for normality: SW test, Anderson-Darling
+`from scipy.stats import anderson`
+`anderson(x=, dist = 'norm')`
+
 ## Experimental Design Techniques
+
 In this subchapter:
 - Factorial designs: principles and applications
 - Randomised block design: controlling variance
 - Covariate adjustment in experiential design
+
+Factorial Design, study multiple independent factors in one experiment
+
+Blocking:
+reduce variance
+each block recieves all treatments
 ## Analyzing Experiment Data: Statistical Tests and Power
 In this subchapter:
 - Choosing the right statistical tests
