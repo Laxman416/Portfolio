@@ -33,6 +33,12 @@
     - [Hypothesis Testing](#hypothesis-testing)
     - [Experimental Design in Python](#experimental-design-in-python)
     - [Project 8](#project-8)
+    - [Supervised Learning with scikit-learn](#supervised-learning-with-scikit-learn)
+    - [Project 9](#project-9)
+    - [Unsupervised Learning in Python](#unsupervised-learning-in-python)
+    - [Project 10](#project-10)
+    - [Machine Learning with Tree-Based Models in Python](#machine-learning-with-tree-based-models-in-python)
+    - [Project 11](#project-11)
 
 ### Introduction to Python
 
@@ -290,3 +296,51 @@ library used:
 - do non-parametric tests and unpaired tests between two df
 - mwu test
 - p_value/ null hypothesis
+
+### Supervised Learning with scikit-learn
+
+**Chapters:**
+- Classification
+- Regression
+- Fine-Tuning your model
+- Preprocessing and Pipelines
+
+### Project 9
+
+library used:
+- `from sklearn.metrics import f1_score`
+- `from sklearn.linear_model import LogisticRegression`
+- `from sklearn.model_selection import train_test_split`
+
+
+**Techniques:**
+- Supervised Learning
+- Logistic Regression
+- EDA
+- train_test_split
+- f1 score
+
+### Unsupervised Learning in Python
+
+**Chapters:**
+- Clustering for Dataset Exploration
+- Visualisation with Hierarchial Clustering and t-SNE
+- Decorrelating Your Data adn Dimension Reduction
+- Discovering Interpretable Features
+
+### Project 10
+
+`Clustering Antarctic Penguin Species`
+
+### Machine Learning with Tree-Based Models in Python
+
+**Chapters:**
+- Classification and Regression Trees
+- The Bias-Variance Tradeoff
+- Bagging and Random Forests
+- Boosting
+- Model Tuning
+
+### Project 11
+
+`Predicting Movie Rental Durations`

@@ -130,7 +130,7 @@ import sklearn.linear_model import LinearRegression
 
 reg = LinearRegression()
 reg.fit(X_feature , y)
-predictions = reg.predict(X_feature,y)
+predictions = reg.predict(X_feature)
 
 # plot model and data
 ```
@@ -156,9 +156,10 @@ y_train, y_test = train_test_split(X = ,
 reg_all = LinearRegression()
 reg_all.fit(X_train,y_train)
 y_pred = reg_all.predict(X_test)
+
 # R^2: quantifies variance in target explained by features
 
-reg_all.score(X_test,y_test) # Retirms R^2
+reg_all.score(X_test,y_test) # Returms R^2
 
 ## Using RMSE
 from sklearn.metrics import mean_squared_error
@@ -172,7 +173,7 @@ R^2 dependent on way data is split.
 use cross-validation
 split data into 5 folds
 
-![Split data into folds](image.png)
+![Split data into folds](Images/Supervised%20ML/image.png)
 
 5 values of $R^2$
 
@@ -251,10 +252,9 @@ causes high accuracy, but not good at predicting
 
 Confusion Matrix for assessing classification performance
 
-Accuracy: TP
-Precision: TP/TP+FP (High precision = lower false positive rate)
-Recall: TP/TP+FN (High recall = lower false negative rate)
-
+Accuracy: TP </br>
+Precision: TP/TP+FP (High precision = lower false positive rate)</br>
+Recall: TP/TP+FN (High recall = lower false negative rate)</br>
 F1 Score:
 $$\text{F1 Score} = \frac{\text{precision} * \text{recall}}{\text{precision} + \text{recall}}$$
 
@@ -277,7 +277,7 @@ classification_report = classification_report(y_test, y_pred)
 - if p > 0.5, data labeled as 1
 - if p < 0.5, data labeled as 0
 
-![Linear decision binary](image-1.png)
+![Linear decision binary](Images/Supervised%20ML/image-1.png)
 
 ```python
 from sklearn.liner_model import LogisticRegression
@@ -291,8 +291,9 @@ y_pred = logreg.predict(X_test)
 y_pred_probs = logreg.predict_proba(X_test)[:, 1] # Selcet 2nd column out of 2D array
 ```
 ROC curve:
-varying thresholds:
-![alt text](image-2.png)
+varying thresholds:</br>
+if ROC curve above -> better than randomly guessing
+![alt text](Images/Supervised%20ML/image-2.png)
 
 ```python
 from sklearn.metrics import roc_curve
@@ -320,7 +321,7 @@ Hyperparameter Tuning:
 - use cross-validation to avoid overfitting
 
 Grid search cross-validation
-![alt text](image-3.png)
+![alt text](Images/Supervised%20ML/image-3.png)
 Choose the hyperparameter that perform best
 
 ```python
@@ -382,7 +383,7 @@ df_dummies = df_dummies.drop("categorical column",axis = 1)
 # For one categorical variables
 df_dummies = pd.get_dummies(df, drop_first = True)
 linreg = LinearRegression()
-linreg_cv = cross_val_score(linreg, X_train, y_train, cv=kf, scoring = "neg_mean_squared_error)
+linreg_cv = cross_val_score(linreg, X_train, y_train, cv=kf, scoring = "neg_mean_squared_error")
 # returns -mse
 
 rse = np.sqrt(-linreg_cv)
