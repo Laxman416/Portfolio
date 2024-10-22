@@ -15,6 +15,12 @@
   - [Visualisation with Hierarchial Clustering and t-SNE](#visualisation-with-hierarchial-clustering-and-t-sne)
   - [Decorrelating your Data and Dimension Reduction](#decorrelating-your-data-and-dimension-reduction)
   - [Discovering Interpretable Features](#discovering-interpretable-features)
+- [ML with Tree-Based Models](#ml-with-tree-based-models)
+  - [Classification and Regression Trees (CART)](#classification-and-regression-trees-cart)
+  - [The Bias-Variance Tradeoff](#the-bias-variance-tradeoff)
+  - [Bagging and Random Forests](#bagging-and-random-forests)
+  - [Boosting](#boosting)
+  - [Model Tuning](#model-tuning)
 
 # Supervised Learning Scikit-learn
 
@@ -888,5 +894,443 @@ df = pd.DataFrame(norm_features, index = titles)
 current_article = df.loc['']
 similarities = df.dot(current_articles)
 similarities.nlargest()
+```
+
+# ML with Tree-Based Models
+
+## Classification and Regression Trees (CART)
+
+In this subchapter:
+- Decision-Tree for Classification
+- Classification tree learning
+- Decision tree for regression
+
+Classification-tree:
+- sequence of if-else questions about features
+- infer class labels
+- non-linear relationships
+- don't need scaling (Standardization)
+
+Tree learns if else questions:
+![Decision-tree-diagram](Images/ML%20Tree%20Based/Decision-tree-diagram.png)
+maximum_depth: 2 (top to bottom)
+
+```python
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                    test_size = 0.2,
+                                                    stratify = y,
+                                                    random_state = 1)
+
+dt = DecisionTreeClassifier(max_depth=2, random_state = 1)
+
+dt.fit(X_train,y_train)
+y_pred = dt.predict(X_test)
+
+accuracy_score(y_test, y_pred)
+```
+
+Decision Regions:</br>
+region in the feature space where all instances are assigned to one class label
+seperated by `Decision Boundary`
+
+![Decision Regions](Images/ML%20Tree%20Based/Decision%20Regions%20-%20CART%20vs%20Linear.png)
+
+**Classification tree learning**
+Node: question/prediction
+3 types:
+- Root: no parent, two children
+- Internal: one parent, two children
+- Leaf: one parent, no children --> predictions
+
+*Information Gain*
+- purest leaf: by maximizing info gained
+  
+Measure impurity of node:
+- gini index
+- entropy
+
+Nodes are grown recursively, from state of predecessors
+then maximise IG at next node and split
+when IG(node)=0, node declared leaf
+
+```python
+dt = DecisionTreeClassifier(criterion = 'gini', random_state = 1)
+```
+
+**DT for Regression**
+
+```python
+from sklearn.metrics import mean_squared_error as MSE
+
+X_train,...
+
+dt = DecisionTreeRegressor(max_depth = 4,
+                            min_samples_leaf = 0.1, # Each leaf contains 10% training data
+                            random_state = 3)
+
+dt.fit(X_train, y_train)
+y_pred = dt.predict(X_test)
+
+mse_dt = MSE(y_test, y_pred)
+rmse_dt = np.sqrt(mse_dt)
+```
+When Regression Tree:
+- impurity of tree measured on rmse
+- leafs try to minimise rmse
+
+![alt text](Images/ML%20Tree%20Based/LinReg%20vs%20RegTree.png)
+
+## The Bias-Variance Tradeoff
+
+In this subchapter:
+- Generalization Error
+- Diagnose bias and variance patterns
+- Ensemble learning
+
+**Generalization Error**
+
+Supervised Learning: y = f(x), f is unknown
+goal is to approximate f
+- discard noise
+
+difficulties:
+- overfitting: fits the noise -> low training set error, high test set error
+- underfitting: training error = test error both high
+
+Generalised Error formula:
+$$\hat{f} = \text{bias}^2 + \text{variance} + \text{irreducible error}  $$
+- bias: error that tells how much $\hat{f} \neq f$ average. high bias -> underfitting
+- variance: how much $\hat{f}$ is inconsistent over different training sets. High varience -> overfitting
+
+![Generalized Error](Images/ML%20Tree%20Based/generalised%20error.png)
+
+**Diagnosing bias and variance**
+
+how to estimate GE - cant be done directly
+
+split data</br>
+evaulate error on test set</br>
+GE of $\hat{f} \approx$ test set error on $\hat{f}$
+
+should do cross-validation(CV)
+CV error is mean of errors of folds
+
+$\hat{f}$ suffers from high variance: if CV error $\hat{f}$ > training set error of $\hat{f}$
+$\hat{f}$:
+- is said to overfit
+- decrease model complexity: decrease max depth, increase min samples per leaf, gather more data
+
+$\hat{f}$ suffers from high variance: if CV error $\hat{f} \approx$  training set error of $\hat{f}$
+$\hat{f}$:
+- underfits
+- need to increase model complexity
+- gather more relevant features
+
+```python
+from sklearn.model_selection import cross_val_score
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metric import mean_squared_error as MSE
+X_train,...
+
+dt = DecisionTreeRegressor(max_depth =4,
+                           min_samples_leaf = ,
+                           random_state = SEED)
+
+MSE_CV = - cross_val_score(dt, X_Train, y_train, 
+                          cv=10, 
+                          scoring = 'neg_mean_squared_error', 
+                          n_jobs = -1) # all avaliable CPUs used
+
+dt.fit(X_train,y_train)
+y_predict_train = dt.predict(X_train)
+y_predict_test = dt.predict(X_test)
+
+train_error = MSE(y_train, y_predict_train)
+test_error = MSE(y_test, y_predict_test)
+```
+
+**Ensemble Learning**
+
+Advantages of CART:
+- Simple to understand/ interpret
+- Flexible: non-linear
+- Preprocessing: no need to standardise/normalise features
+  
+Limitations:
+- Classification: can only produce orthogonal decision boundaries
+- Sensitive to small variations
+- High Variance: may overfit 
+
+Solution: Ensemble Learning:
+- Train different models on same dataset
+- each model make its prediction
+- Meta-model: aggregates predictions of individual models
+- Final predictions: more robust and less prone to errors
+
+![Ensemble Learning](Images/ML%20Tree%20Based/Ensemble%20Learning.png)
+
+Voting Classifier:
+- Binary Classification task
+- Each model predicts
+- use hard-voting (majority)
+
+```python
+from sklearn.metrics import accurcay_score
+from sklearn.model_selection import train_test_split
+
+# Import Models and VotingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier as KNN
+from sklearn.ensemble import VotingClassifier
+
+SEED = 1
+
+X_train,...
+
+lr = LogisticRegression(random_state = SEED)
+knn = KNN()
+dt = DecisionTreeClassifier(random_state = SEED)
+
+classifier = [('Logistic Regression', lr),
+              ('K Nearest Neighbors', knn),
+              ('Classification Tree', dt)]
+
+for clf_name, clf in classifiers:
+  clf.fit(X_train, y_train)
+  y_pred = clf.predict(X_test)]
+
+  accuracy_score = accuracy_score(y_test, y_pred)
+
+vc = VotingClassifier(estimators = classifiers)
+
+vc.fit(X_train, y_train)
+y_pred = vc.predicit(X_test)
+
+```
+
+## Bagging and Random Forests
+
+In this subchapter:
+- Bagging
+- Out of Bag Evaluation
+- Random Forests (RF)
+
+**Bagging**</br>
+- Ensemble Method
+- one algorithim
+- different subsets of training set
+- sample N subsets with replacement
+- train N models using same alogrithim
+- uses majority voting in classification
+- In regression, aggregates predictions
+- `BaggingClassifier` or `BaggingRegressor`
+
+![Bagging](Images/ML%20Tree%20Based/Bagging.png)
+
+```python
+from sklearn.ensemble import BaggingClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+
+SEED = 1
+
+X_train, ...
+
+dt = DecisionTreeClassifier(max_depth = 4,
+                            min_samples_leaf = 0.14, ranodm_state = SEED)
+
+bc = BaggingClassifier(base_estimator = dt,
+                       n_estimators = 300,
+                       n_jobs = -1)
+
+bc.fit(X_train, y_train)
+y_pred = bc.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+```
+
+**Out of Bag Evolution**
+
+- On average 63% are sampled in Bagging: 37% OOB
+- OOB used to evalutate performance of model
+
+![OOB Evaluation](Images/ML%20Tree%20Based/OOB%20Evaluation.png)
+
+```python
+
+bc = BaggingClassifier(base_estimator = dt,
+                       n_estimators = 300,
+                       n_jobs = -1,
+                       oob_score = True)
+# acuracy for classifiers, r-squared for regressors
+
+test_accuracy = accuracy_score(y_test, y_pred)
+
+oob_accuracy = bc.oob_score_
+
+```
+**Random Forests**
+- ensemble method that uses DT as base estmiator
+- each estimator trained on different bootstrap sample same size as training data
+- RF introduces further randomisation in the training of individual trees
+- d features are samples at each node without replacement
+- d < total number of features
+- Predictions can be made on new instances
+- `RandomForestClassifier` or `RandomForestRegressor`
+
+```python
+from sklearn.ensemble import RandomForestRegressor
+
+X_train,...
+
+rf = RandomForestRegressor(n_estimators = 400,
+                           min_samples_leaf = 0.12,
+                           random_state = SEED)
+
+rf.fit(X_train, y_train)
+y_pred = rf.predict(X_test)
+rmse_test = np.sqrt(MSE(y_test,y_pred))
+
+importances_rf = pd.Series(rf.feature_importances_, index = X.columns)
+```
+
+## Boosting
+
+- Ensemble method combining several weak learners to form strong leaner.
+- Train an ensemble of predictors sequentially
+- Each predictor tries to correct its predecessor
+
+In this subchapter:
+- Adaboost
+- Gradient Boosting
+- Stochastic Gradient Boosting
+
+**Adaboost**
+
+- Adaptive boosting
+- Each predictors pays more attention to wrongly predicted by its predecssor
+- Achieved by changing weights of training instances
+- $\alpha$ assigned to each predictor and depends on training error
+- $\eta$ learning rate. smaller value compenstaed by larger number of estimators
+- `AdaBoostClassifier` or `AdaBoostRegressor`
+
+```python
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.metrics import roc_auc_score
+
+SEED = 1
+
+X_train,...
+
+dt = DecisionTreeClassifier(max_depth = 1, random_state = SEED)
+
+adb_clf = AdaBoostClassifier(base_estimators = dt,
+                             n_estimators = 100)
+
+y_pred_proba = adb_clf.predict_proba(X_test)[:, 1]
+adb_clf_roc_auc_score = roc_auc_score(y_test, y_pred_proba)
+```
+
+**Gradient Boosting**
+
+- Doesnt tweak the weights of training instances
+- Fit each predictor is trained using its predecssor's residual errors as labels
+
+shrinkage:</br>
+predictions of each tree shrinked by multiplying by eta
+`GradientBoostingClassifier` or `GradientBoostingRegressor`
+
+```python
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import train_test_split
+
+SEED = 1
+X_train, ...
+
+gbt = GradientBoostingRegressor(n_estimators = 300, max_depth = 1, random_state = SEED)
+gbt.fit(X_train, y_train)
+y_pred = gbt.predicT(X_test)
+
+rmse = np.sqrt(MSE(y_test, y_pred))
+```
+
+**Stochastic Gradient Boosting**
+
+GB involves exhaustive search procedure
+SGB:
+- each tree is trained on random subset of training data
+
+```python
+sgbt = GradientBoostingRegressor(n_estimators = 300, 
+                                 max_depth = 1, 
+                                 random_state = SEED.
+                                 sub_sample = 0.8,
+                                 max_features = 0.2)
+```
+
+## Model Tuning
+
+In this subchapter:
+- Tuning a CART's Hyperparameters
+- Tuning a RF's Hyperparameters
+
+
+**CART Hyperparameter**
+`dt.get_params()`
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+params_dt = {
+  'max_depth' : [3,4,5,6],
+  'min_samples_leaf': [0.04,0.06]
+  'max_featuers': []
+}
+
+grid_dt = GridSearchCV(estimator = dt,
+                       param_grid = params_dt,
+                       scoring = 'accuracy',
+                       cv = 10,
+                       n_jobs = -1)
+
+best_hyperparams = grid_dt.best_params_
+best_CV_score = grid_dt.best_score_
+best_model = grid_dt.best_estimator_
+```
+
+**RF's Hyperparameter**
+
+- CART hyperparameters
+- number of estimators
+- bootstrap
+
+`rf.get_params()`
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+params_rf = {
+  'max_depth' : [3,4,5,6],
+  'min_samples_leaf': [0.04,0.06]
+  'max_features': ['log2', 'sqrt']
+  'n_estimators': [300,400,500]
+}
+
+grid_rf = GridSearchCV(estimator = rf,
+                       param_grid = params_rf,
+                       scoring = 'neg_mean_squared_error',
+                       cv = 3,
+                       n_jobs = -1,
+                       verbose = 1) # higher more messages printed
+
+best_hyperparams = grid_rf.best_params_
+best_CV_score = grid_rf.best_score_
+best_model = grid_rf.best_estimator_
 ```
 

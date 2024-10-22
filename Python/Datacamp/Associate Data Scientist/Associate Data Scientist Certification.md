@@ -357,3 +357,13 @@ library used:
 
 `Predicting Movie Rental Durations`
 
+library used:
+- `from sklearn.model_selection import train_test_split`
+- `from sklearn.metrics import mean_squared_error as MSE`
+- `from sklearn.tree import DecisionTreeRegressor`
+- `from sklearn.model_selection import GridSearchCV`
+
+**Techniques:**
+- categorizing by string
+- converting columns to datetime
+- optimising dtregressor model with GridSearchCV
