@@ -10,6 +10,11 @@
   - [Regression](#regression)
   - [Fine-Tuning Your Model](#fine-tuning-your-model)
   - [Preprocessing and Pipelines](#preprocessing-and-pipelines)
+- [Unsupervised Learning](#unsupervised-learning)
+  - [Clustering for Dataset Exploration](#clustering-for-dataset-exploration)
+  - [Visualisation with Hierarchial Clustering and t-SNE](#visualisation-with-hierarchial-clustering-and-t-sne)
+  - [Decorrelating your Data and Dimension Reduction](#decorrelating-your-data-and-dimension-reduction)
+  - [Discovering Interpretable Features](#discovering-interpretable-features)
 
 # Supervised Learning Scikit-learn
 
@@ -554,3 +559,334 @@ plot box plot
 
 Also do models on test data
 `for name, model in models.items()`
+
+# Unsupervised Learning
+
+## Clustering for Dataset Exploration
+In this subchapter:
+- Unsupervised Learning
+- Evaluating a clustering
+- Transforming features for better clusterings
+
+Supervised learning finds patterns for prediction task
+Unsupervised learning finds patterns in data
+
+In 2D Numpy arrays
+Dimension = number of features
+
+Each sample (row) is data in 4D
+
+*KMeans*
+- Finds Clusters of sample
+- Number of clusters must be provided
+  
+```python
+from sklearn.cluster import KMeans
+
+model = KMeans(n_clusters = 3)
+model.fit(samples)
+
+labels  = models.precit(samples)
+```
+*Cluster labels for new samples*
+- KMeans remembers mean of each cluster(centroids)
+- find nearest centroid to each sample
+
+```python
+new_labels = model.predict(new_samples)
+
+plt.scatter(x,y, c=label)
+plt.show()
+```
+
+**Evaluating a clustering**
+- do the clusters correspond to any category
+- plot cross tabulation
+
+```python
+df = pd.DataFrame({'labels': label, 'species': species})
+ct = pd.crosstab(df['labels'], df['species'])
+```
+
+Evaluating only using clusters:
+- tight clusters better using inertia
+- distance from each sample to centroid of its own cluster
+- lower inertia is better
+
+```python
+model = KMeans(n_clusters = 3)
+model.fit(samples)
+inertia = model.inertia_
+```
+![Inertia vs num of clusters](Images/Unsupervised%20Learning/Clusters.png)
+- choose the elbow for num of clusters
+
+**Transforming Features for better clustering**
+- if variance of features vary need to use StandardScaler
+- StandardScaler transform each feature to have mean 0 variance 1
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+scaler.fit(samples)
+
+StandardScaler(copy = True, with_mean = True, with_std = True)
+samples_scaled = scaler.transform(samples)
+```
+
+- StandardScalar transforms data
+- KMeans assigns clusters labels to samples using predict
+```python
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans 
+
+scaler = StandardScaler()
+kmeans = KMeans(n_clusters = 3)
+
+pipeline = make_pipeline(scaler, kmeans)
+pipeline.fit(samples)
+labels = pipeline.predict(samples)
+```
+
+Other Preprocessing:
+- `MaxAbsScaler`
+- `Normalizer`
+
+## Visualisation with Hierarchial Clustering and t-SNE
+
+In this subchapter:
+- Visualising hierarchies
+- Cluster labels in hierarchial clustering
+- t-SNE for 2D map
+
+two ways to visualise:
+- t-SNE: creates a 2D map of dataset
+- hierarchial clustering: arranges samples into hierarchy of clusters
+
+can plot graph - dendrogram
+
+*Hierarchial Clustering: Agglomerative*
+- begins with every sample as cluster
+- at each step, two closest clusters are merged
+- continue into a single cluster
+
+![Dendrogram example](Images/Unsupervised%20Learning/Dendrogram.png)
+
+```python
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import linkage, dendrogram
+
+mergings = linkage(samples, method = 'complete')
+
+dendrogram(mergings,
+           labels = country_names,
+           leaf_rotation = 90,
+           leaf_font_size = 6)
+```
+**Cluster labels**
+Cluster labels at intermediate stages can be recovered
+choosing height
+height on dendrogram = distance between merging clusters
+
+`fcluster()` extracts array of cluster labels at given height
+
+```python
+from scipy.cluser.hierarchy import fcluster
+
+labels = fcluster(mergings, 15, criterion ='distance')
+
+pairs = pd.DataFrame({'labels':labels, 'countries': country_names})
+```
+
+**t-SNE for 2D maps**
+- Maps approximately samples to 2D
+
+Interpreting t-SNE:
+- num clusters is k-means parameters
+- clusters could be hard to be distinguished
+
+```python
+import matplotlib.pyplot as plt
+from sklearn.manifold import TSNE
+
+model = TSNE(learning_rate = 100)
+transformed = model.fit_transform(samples)
+xs = transformed[:, 0]
+ys = transformed[:, 1]
+
+plt.scatter(xs, ys, c=species)
+plt.show()
+```
+
+t-SNE:
+- only has fit_transform method
+- simultaneously fits model and transforms data
+- cant extend map to fit new data
+- try varying learning_rate
+
+## Decorrelating your Data and Dimension Reduction
+
+In this subchapter:
+- Visualising the PCA transformation
+- Intrinsic Dimension
+- Dimension reduction with PCA
+
+Dimension reduction: finds patterns in data, and uses patterns to re-express in compressed form
+- Remove noise: easier to predict now
+- efficient storage
+
+PCA:
+- dimension reduction techniques
+- first, decorrelation
+- then reduce dimension
+-
+- Rotates data samples to be aligned with axes
+- Shifts data samples -> mean 0
+
+![PCA transformation](Images/Unsupervised%20Learning/PCA%20Transformation.png.png)
+- `fit()` learns the transformation from data
+- `transform()` applies learned transformation or to new data
+
+```python
+from sklearn.decomposition import PCA
+model = PCA()
+model.fit(samples)
+
+transformed = model.transform(samples)
+# rows correspond to samples
+# columns are PCA features
+```
+
+principal components -> directions of variance
+PCA aligns principal components with the axes
+`model.components_` -> gives principal components
+
+**Intrinsic Dimension**
+like x and y can be turned into dist.
+Number of features needed to approximate dataset
+can be found using PCA
+- Number of features with sig. varaince
+
+if plot shows samples lie in plane in 3D
+-> intrinsic dimension of 2
+
+```python
+import matplotlib.pyplot as population
+from sklearn.decomposition import PCA
+
+pca = PCA()
+pca.fit(samples)
+features = range(pca.n_components_)
+
+plt.bar(features, pca.explained_variance_)
+plt.xticks(features)
+```
+
+**Dimension Reduction PCA**
+- represents same data, using less features
+- PCA features in decreasing order of variance
+- assumes low variance is noise and high variance is information
+
+```python
+from sklearn.decomposition import PCA
+
+PCA(n_components = 2)
+```
+despite reducing dimensions can still see species/clusters
+
+`scipy.sparse.csr_matrix`: only contains non-zero entries
+PCA doesnt support csr_martix, use `TruncatedSVD`
+```python
+from sklearn.decomposition import TruncatedSVD
+
+model = TruncatedSVD(n_components = 3)
+model.fit(document)
+transformed = model.transform(document)
+```
+
+## Discovering Interpretable Features
+
+In this subchapter:
+- Non-negative matrix factorisation
+- NMF learns interpretable parts
+- Building recommender systems using NMF
+
+`NMF` is like `PCA` a dimension reduction techniques
+- NMF models are interpretable
+- all sample features must be non negative
+
+- works with `csr_matrix`
+- follows fit() and transform()
+- `tf-idf` measures frequency of each word in document
+- 
+```python
+from sklearn.decomposition import NMF
+
+model = NMF(n_components = 2)
+model.fit(samples)
+nmf_features = model.transform(samples)
+
+components = model.components_
+
+# Sample Reconstruction using matrix product of component and features
+```
+
+**Interpretable parts:**
+
+```python
+articles.shape -> (20000, 800)
+from sklearn.demcomposition import NMF
+nmf = NMF(n_components= 10)
+nmf.fit(articles)
+
+nmf.components_.shape -> (10,800)
+# 1D for each word
+```
+For documents:
+- NMF components represents topics
+- NMF features combine topics into documents
+
+For images:
+- NMF components represents patterns in images
+
+`greyscale images` -> using brightness 
+
+```python
+
+bitmap = sample.reshape((2,3))
+from matplotlib import pyplot as plt
+
+plt.imshow(bitmap, cmap = 'gray', interpolation = 'nearest')
+```
+
+**Recommender systems using NMF**
+
+compare articles using feature values
+- Compare using nmf features
+- Cosine similarity - high values means more similar
+- calculates angle between - cos theta
+
+
+```python
+from sklearn.decomposition import NMF
+
+nmf = NMF(n_components = 6)
+nmf_features = nmf.fit_transform(articles)
+
+from sklearn.preprocessing import normalize 
+
+norm_features = normalize(nmf_features)
+
+current_article = norm_features[23,:]
+similarities = norm_features.dot(current_article)
+
+## DF
+df = pd.DataFrame(norm_features, index = titles)
+
+current_article = df.loc['']
+similarities = df.dot(current_articles)
+similarities.nlargest()
+```
+

@@ -332,6 +332,18 @@ library used:
 
 `Clustering Antarctic Penguin Species`
 
+library used:
+- `import matplotlib.pyplot as plt`
+- `from sklearn.cluster import KMeans`
+- `from sklearn.preprocessing import StandardScaler`
+- `from sklearn.pipeline import make_pipeline`
+
+**Techniques:**
+- Analysis to find optimum cluster numbers
+- Pipeline created
+- used `StandardScaler`
+- found the means of each feature for each cluster
+
 ### Machine Learning with Tree-Based Models in Python
 
 **Chapters:**
@@ -344,3 +356,4 @@ library used:
 ### Project 11
 
 `Predicting Movie Rental Durations`
+
