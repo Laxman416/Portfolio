@@ -443,7 +443,7 @@ using quantiles u can define ci
 PDF integrates to CDF
 
 plot Inv. CDF
-`norm.ppf(quantile, loc = point_estimate_mean, scale = std_error)`
+`ppf(quantile, loc = point_estimate_mean, scale = std_error)`
 
 # Hypothesis Testing
 
@@ -546,11 +546,11 @@ import pingouin
 
 pingouin.ttest(x = df['diff'].
                y = 0, # hypothesised values
-               alternative = 'less','twosided','greater')
+               alternative = 'less','two-sided','greater')
 
 pingouin.ttest(x = df['x'].
                y = df['y'], # hypothesised values
-               alternative = 'less','twosided','greater',
+               alternative = 'less','two-sided','greater',
                paired = True/False)
 ```
 
@@ -682,22 +682,14 @@ In this subchapter:
 Assumption:
 - assume random: sample is not representative
 - each observation independence: increased FN/FP errors
-- large sample size: Wider ci and increased FN/FP errors
-*for one sample t-test:*
-at least 30
-*for two sample t-test:*
-need 30 from each group
-*Paired samples and ANOVA:*
-at least 30
 
-*1 sample proportion tests:*
-needs 10 success and 10 failures
-
-*2 sample proportion tests:*
-needs 10 success and 10 failures from each sample
-
-*chi-square:*
-needs 5 success and failures in each group
+large sample size: Wider ci and increased FN/FP errors
+- *for one sample t-test:* at least 30
+- *for two sample t-test:* need 30 from each group
+- *Paired samples and ANOVA:* at least 30
+- *1 sample proportion tests:* needs 10 success and 10 failures
+- *2 sample proportion tests:* needs 10 success and 10 failures from each sample
+- *chi-square:* needs 5 success and failures in each group
 
 ---
 or
@@ -786,6 +778,39 @@ Factorial Design, study multiple independent factors in one experiment
 Blocking:
 reduce variance
 each block recieves all treatments
+
+```python
+blocks = athletes.groupby('').apply(
+  lambda x: x.sample(frac = 1) # shuffles rows within blocks
+)
+blocks = blocks.reset_index(drop = True)
+
+blocks['Treatment'] = np.random.choice(
+  ['','',''],
+  size = len(blocks))
+
+# Visualise
+
+# ANOVA tests
+from scipy.stats import f_oneway
+
+blocks.groupby('').apply(
+  lambda x: f_oneway((x[x['Treatment'] == 'Group']['']))
+)
+```
+
+Covariate:
+- could affect analysis but not primary focus
+- need to reduce
+
+```python
+model = ols('y ~ x + covariate variable', data = ).fit()
+model.summary()
+```
+if p-value high covariate variable doesnt affect result
+
+plotting fits between data will help
+
 ## Analyzing Experiment Data: Statistical Tests and Power
 In this subchapter:
 - Choosing the right statistical tests
