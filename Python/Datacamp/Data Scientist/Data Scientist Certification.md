@@ -10,6 +10,7 @@
   - [Developing Python Packages](#developing-python-packages)
   - [Machine Learning in Business](#machine-learning-in-business)
   - [Introduction to SQL](#introduction-to-sql)
+  - [Intermediate SQL](#intermediate-sql)
   - [Project 1 - Analyzing Student's Mental Health](#project-1---analyzing-students-mental-health)
   - [Joining Data in SQL](#joining-data-in-sql)
   - [Project 2 - Golden Era of Video Games](#project-2---golden-era-of-video-games)
@@ -20,6 +21,9 @@
 [Notes](../../Notes/Data%20Scientist%20Notes/Data%20Handling%20and%20ML.md#Intermediate-Importing-Data)
 
 **Chapters:**
+- Importing data from the Internet
+- Interacting with APIs to import data from the web
+- Diving deep into Twitter API
 
 ---
 
@@ -28,6 +32,10 @@
 [Notes](../../Notes/Data%20Scientist%20Notes/Data%20Handling%20and%20ML.md#Preprocessing-in-Machine-Learning)
 
 **Chapters:**
+- Introduction to Data Preprocessing
+- Standardising Data
+- Feature Engineering
+- Selecting Features for ModellinG
 
 ---
 
@@ -36,6 +44,10 @@
 [Notes](../../Notes/Data%20Scientist%20Notes/Data%20Handling%20and%20ML.md#Developing-Python-Packages)
 
 **Chapters:**
+- From Loose Code to Local Package
+- Install your package
+- Increasing package quality
+- Rapid Package Development
 
 ---
 
@@ -44,6 +56,10 @@
 [Notes](../../Notes/Data%20Scientist%20Notes/Data%20Handling%20and%20ML.md#Machine-Learning-in-Business)
 
 **Chapters:**
+- Machine Learning and Data use cases
+- ML types
+- Business Requirements and Model Design
+- Managing ML projects
 
 ---
 
@@ -52,6 +68,20 @@
 [Notes](../../Notes/Data%20Scientist%20Notes/SQL%20and%20Git%20Fundamentals.md#Introduction-to-SQL)
 
 **Chapters:**
+- Relational Databases
+- Querying
+
+---
+
+### Intermediate SQL
+
+[Notes](../../Notes/Data%20Scientist%20Notes/SQL%20and%20Git%20Fundamentals.md#Intermediate-SQL)
+
+**Chapters:**
+- Selecting Data
+- Filtering Records
+- Aggregate Functions
+- Sorting and Grouping
 
 ---
 
@@ -64,12 +94,15 @@
 [Notes](../../Notes/Data%20Scientist%20Notes/SQL%20and%20Git%20Fundamentals.md#Joining-Data-in-SQL)
 
 **Chapters:**
+- Introduction Inner Joins
+- Outer Joins, Cross Joins, and Self Joins
+- Set Theory for SQL Joins
+- Subqueries
 
 ---
 
 ### Project 2 - Golden Era of Video Games
 
-**Chapters:**
 
 ---
 
@@ -78,5 +111,9 @@
 [Notes](../../Notes/Data%20Scientist%20Notes/SQL%20and%20Git%20Fundamentals.md#Introduction-to-Git)
 
 **Chapters:**
-
+- Introduction
+- Making changes
+- Git workflows
+- Collaborating
+  
 ---
