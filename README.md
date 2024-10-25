@@ -10,6 +10,8 @@
     - [📗 Project 1: Measuring Production Asymmetry of Neutral Charm Mesons](#-project-1-measuring-production-asymmetry-of-neutral-charm-mesons)
     - [📗 Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons](#-project-2-extended-study-on-measuring-production-asymmetry-of-neutral-charm-mesons)
   - [📄 Python Certification](#-python-certification)
+    - [📄 Associate Data Scientist in Python from DataCamp](#-associate-data-scientist-in-python-from-datacamp)
+    - [📄 Data Scientist in Python from DataCamp](#-data-scientist-in-python-from-datacamp)
 - [SQL](#sql)
   - [📓 SQL Notes](#-sql-notes)
   - [⚔️ SQL CodeWars Challenges](#️-sql-codewars-challenges)
@@ -46,14 +48,16 @@ These assessments test my attention to detail, testing for syntax and logic erro
 
   ### 📓 Python Notes
 
-  - [Python Fundamentals](Python/Notes/Python%20Fundamentals.md) 
-  - [Data Manipulation](Python/Notes/Data%20Manipulation.md)
-  - [Data Cleaning and Importing](Python/Notes/Data%20Cleaning%20and%20Importing.md)
-  - [Data Analysis and Exploration](Python/Notes/Data%20Analysis%20and%20Exploration.md)
-  - [Data Visualisation](Python/Notes/Data%20Visualisations.md)
-  - [Dates and Time](Python/Notes/Dates%20and%20Times.md)
-  - [Statistical Foundations: Modeling, Sampling, and Hypothesis Testing"](Python/Notes/Statistical%20Foundations%20-%20Modeling,%20Sampling,%20and%20Hypothesis%20Testing.md)
-  - [Machine Learning Techniques: Supervised and Unsupervised Learning](Python/Notes/Machine%20Learning%20Techniques%20-%20Supervised%20and%20Unsupervised%20Learning.md)
+  - [Python Fundamentals](Python/Notes/Associate%20Data%20Scientist%20Notes/Python%20Fundamentals.md) 
+  - [Data Manipulation](Python/Notes/Associate%20Data%20Scientist%20Notes/Data%20Manipulation.md)
+  - [Data Cleaning and Importing](Python/Notes/Associate%20Data%20Scientist%20Notes/Data%20Cleaning%20and%20Importing.md)
+  - [Data Analysis and Exploration](Python/Notes/Associate%20Data%20Scientist%20Notes/Data%20Analysis%20and%20Exploration.md)
+  - [Data Visualisation](Python/Notes/Associate%20Data%20Scientist%20Notes/Data%20Visualisations.md)
+  - [Dates and Time](Python/Notes/Associate%20Data%20Scientist%20Notes/Dates%20and%20Times.md)
+  - [Statistical Foundations: Modeling, Sampling, and Hypothesis Testing"](Python/Notes/Associate%20Data%20Scientist%20Notes/Statistical%20Foundations%20-%20Modeling,%20Sampling,%20and%20Hypothesis%20Testing.md)
+  - [Machine Learning Techniques: Supervised and Unsupervised Learning](Python/Notes/Associate%20Data%20Scientist%20Notes/Machine%20Learning%20Techniques%20-%20Supervised%20and%20Unsupervised%20Learning.md)
+  - [Data Handling and ML](Python/Notes/Data%20Scientist%20Notes/Data%20Handling%20and%20ML.md)
+  - [](Python/Notes/Data%20Scientist%20Notes/SQL%20and%20Git%20Fundamentals.md)
 
   ### ⚔️ Python CodeWars Challenges 
 
@@ -89,8 +93,10 @@ These assessments test my attention to detail, testing for syntax and logic erro
     * Key Libraries Used: matplotlib, argparse, pandas, ROOT, NumPy, SciPy
 
   ### 📄 Python Certification
+  ---
+  #### 📄 Associate Data Scientist in Python from DataCamp 
   
-  - Associate Data Scientist in Python from Datacamp [README](Python/Datacamp/Associate%20Data%20Scientist/Associate%20Data%20Scientist%20Certification.md) - NOT COMPLETED YET
+  [README](Python/Datacamp/Associate%20Data%20Scientist/Associate%20Data%20Scientist%20Certification.md) - Completed 25/10/2021
 
   *Description: 23 Courses, 11 projects, 3 timed assessments.*
   
@@ -99,6 +105,19 @@ These assessments test my attention to detail, testing for syntax and logic erro
 - Learned statistical analysis techniques, including hypothesis testing and regression analysis, to derive meaningful insights from datasets.
 - Developed machine learning fundamentals, applying algorithms such as linear regression and classification models using scikit-learn.
 - Completed hands-on projects analysing real-world datasets, enhancing problem-solving abilities and effective communication of analytical results.
+---
+#### 📄 Data Scientist in Python from DataCamp 
+
+[README](Python/Datacamp/Data%20Scientist/Data%20Scientist%20Certification.md)
+
+*Description: 8 Courses, 2 projects.*
+
+- Collect data from JSON and HTML formats using Python or R and perform data extraction and aggregation tasks with SQL. 
+- Identify and address missing data and outliers in exploratory analysis. 
+- Adhering to best practices, including version control and testing in Python.
+- Effective data communication through storytelling techniques and presentations is critical. 
+- Make recommendations based on business objectives and evaluate results against KPIs.
+
 
 ## SQL
 
