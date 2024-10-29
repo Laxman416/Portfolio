@@ -59,13 +59,13 @@ url = ''
 request = Request(url)
 response = urlopen(request)
 
-html = request.read()
+html = response.read()
 response.close()
 
 import requests
 
 url = ''
-r = request.get(url)
+r = requests.get(url)
 text = r.text
 ```
 
@@ -295,6 +295,7 @@ Extraction:
 import re
 
 temp = re.search("\d+\.\d+", my_string) # extracts number
+temp.group(0) # -> contains matches
 ```
 
 TF/IDF: Vectorises words based upon importance
@@ -370,7 +371,7 @@ Captures as much variance as possible in each component
 from sklearn.decomposition import PCA
 pca = PCA()
 
-df_pca = pca.fit_transform(df)
+df_pca = pca.fit_transform(df) # for X, for X_test need to do .transform()
 pca.explained_variance_ratio_ # -> Variance explained by each component
 # Can drop other features
 ```
@@ -381,48 +382,438 @@ pca.explained_variance_ratio_ # -> Variance explained by each component
 # Developing Python Packages
 
 ## From Loose Code to Local Package
+
 In this subchapter:
 - Starting a package
 - Documentation
 - Structuring imports
+
+Allows to reuse code across files.
+- Script - Python file
+- Package - directory of Python files
+- Subpackage - like `numpy.random`
+- Module - A python file inside a package which stores package code
+- Library - package or collection of packages
+
+Directory:
+- files
+- `__init__.py` file: Initially empty, used to structure imports
+- each subpackages require init files
+
+**Documentation**
+
+`help()` -> outputs documentation</br>
+Doc string at top of Fn.
+
+`pyment` -> generates docstring/ translates docstring templates
+
+`pyment - w -o numpydoc file.py` -> Run on cmd line.
+
+Documentation:
+- Package: in init file  
+- subpackage: in init file in subpackage directory
+- module: at the top of module file
+
+**Structuring Imports**
+
+Without structure, can not import subpackage from the package
+
+import Subpackage inside init file in package:
+- Absolute import: `from mysklearn import preprocessing`
+- Relative import: `from . import preprocessing`
+
+for init file in preprocessing:
+- `from mysklearn/preprocessing/normalize import \ normalize_data` imports the useful function
+
+importing between sibling modules
+
+`from .funcs import (func1, func2)`
+
 ## Install your package
+
 In this subchapter:
 - Installing packages
 - Dealing with dependencies
 - Including licenses and READMEs
 - Publishing your package
+
+`setup.py`
+
+- Need an outer directory folder wil same name as package
+- Outer directory contains setup.py
+
+```python
+from setuptools import setup
+
+setup(
+  author = '',
+  description = '',
+  name = '',
+  version = '0.1.0',
+  packages = find_packages(include = ['mysklearn', 'mysklearn.*'])
+)
+```
+
+`pip install -e .` -> installs package
+
+**Dealing with dependencies**
+
+inside setup
+```python
+setup(
+install_requires = ['pandas>1.0',
+                    'scipy==1.1',
+                    'matplotlib>2.2.1, <3']
+python_requires = '>=2.7, !=3.0*, !=3.1*',
+)
+```
+Making environments:
+
+`pip freeze > requirements.txt`
+`pip install -r requirements.txt`
+
+**Publishing packages**
+
+- downloading from PyPI, anyone can upload packages
+- release early
+
+Distributed package: bundled version of package
+- Source Dist: mostly source code
+- Wheel Dist: processed to make it faster
+- upload both
+
+`python setup.py sdist bdist_wheel`
+- Creates `dist` directory.
+
+Upload:
+- `twine upload dist/*`
+- `twine upload -r testpypi dist/*`
+
+
 ## Increasing package quality
+
 In this subchapter:
 - Testing your package
 - Testing your package with different environments
 - Keeping your package stylish
+
+Testing along the way and save the code in a file.
+Tracks down bugs
+
+```python
+
+def func(x):
+
+  return x
+
+def test_func():
+  assert func(0) == 0
+  # can do multiple asset lines
+  
+# Raises Assertion error if not true
+```
+
+- Test directory Copy structure of package
+- create a test_module.py for each module.
+- Create empty `__init__.py`
+- test each function inside .py file
+
+Run all at once using: 
+`pytest`-> cmd line run at top of directory
+
+**Testing with different environments**
+
+`tox`
+
+create `tox.ini` configuration file, top level of package
+
+```python
+[tox]
+
+envlist = py27, py35, py36, py37
+
+[testenv]
+deps = pytest
+
+commands = 
+  pytest
+  echo ...
+```
+
+**Formatting**
+
+PEP8: variable and fn name guidance
+`flake8` reads code
+
+`flake8 file.py` cmd line
+
+`#noqa` on line to avoid flake8 guidence
+`#noqa: E222` avoids specific error on line
+
+`flake8 --ignore E222 file.py`
+`flake8 --select F401, F841 file.py`
+
+Create a `setup.cfg` file to store settings
+
+```cfg
+[flake8]
+
+ignore = E302
+exclude = setup.py
+
+per-file-ignores = 
+  example/.../.py: E222
+```
+
+`flake8` run from terminal
+
 ## Rapid Package Development
+
 In this subchapter:
 - Faster package development with templates
 - Version numbers and history
 - Makefiles and classifiers
 
+`cookiecutter`
+- Creates empty Python packages
+- All additional packages
+
+`cookiecutter https://github.com/audreyr/cookiecutter-pypackage`
+
+- Name:
+- github_username:
+- project_name:
+- project_slug: #name used in pip install
+- project_short_description:
+- pypi_username: 
+- use_pytest: y
+- command_line_interface: 3
+
+**Version numbers and history**
+
+`CONTRIBUTING.md` md file to ask other developers to work on package</nr>
+`HISTORY.md` What has changed between versions
+
+```md
+# History
+
+## 0.3.0
+### Changed
+- changed feature
+
+## 0.2.1
+### Fixed
+- Fixed bug
+
+## 0.2.0
+### Added
+- feature added
+```
+
+Need to update version number for new release in:
+  - top level `__init__.py`file : for the user .__version__
+  - setup.py file: for pip
+ 
+`bumpversion major/minor/patch` Run at top of directory in cmd line
+
+**Makefiles and classifiers**
+
+Classifiers:
+- In setup.py
+- allows users to find packages based on their environment
+
+Makefiles:
+- Commands for terminal
+  
+```makefile
+dist: ## builds source and wheel package
+  python setup.py sdist bdist_wheel
+
+clean-build: ##remove build artifacts
+  rm -fr build/
+  rm -fr dist/
+  rm -fr .eggs/
+
+test: ## Run tests
+  pytest
+
+release: dist ## package and upload
+  twine upload dist/*
+```
+
+`make fn_name` e.g. `make dist`
+`make help`
+
 # Machine Learning in Business
 
 ## Machine Learning and Data use cases
+
 In this subchapter:
 - ML and data pyramid
 - ML principles
 - Job roles, tools and technologies
+
+**ML and data pyramid**
+
+ML goals:
+- Draw casual insights: Supervised ML
+- Predict future events: Supervised ML
+- Understand patterns in data: Unsupervised ML
+
+![Data Hierarchy](../Images/ML%20for%20Business/Data%20Hierarchy.png)
+
+**ML Principles**
+
+Unsupervised ML: uses features and groups the rows into similar segments
+- could be used to find anomalies
+
+**Job roles, tools and tech.**
+
+![Job Roles](../Images/ML%20for%20Business/Job%20Roles.png)
+
+Team structures:
+- Centralized: all data fn in one team
+- Decentralized: each department has own data fn
+- Hybrid: infrastructure, methods centralized while application and prototyping decentralized
+
 ## ML types
+
 In this subchapter:
 - Prediction vs inference dilemma
 - Inference (casual) mode
 - Predictions models (Supervised Learning)
 - Prediction models (Unsupervised Learning)
+
+**Prediction vs inference dilemma**
+
+Inference/casual models:
+- goal is to understand drivers of business outcome
+- focused models are interpretable
+- less accurate
+- Which of the features affect target variable the most
+  
+Prediction:
+- prediction is main goal
+- more accurate but less interpretable
+
+**Inference model**
+
+Causality:
+- identify causal relationship of how much certain actions affect an outcome
+- answers 'why' questions
+- experiments preferred over observational studies
+
+**Supervised ML prediction models**
+
+- predicting class
+- predicting quantity
+
+**Unsupervised ML prediction models**
+
+- Clustering - grouping observations into similar groups
+- Don't have Target variable
+- Anomaly detection
+- Recommender engines
+
 ## Business Requirements and Model Design
+
 In this subchapter:
 - Business requirements
 - Model training
 - Model performance measurement
 - ML risks
+
+**Business Requirements**
+
+- Situation: Identify business situation
+- Opportunity: Assess business opportunity: identify right markets
+- Action: What actions to take: prioritise markets with higher predicted demand  
+
+- Start with inference question.
+- Build on inference question to define predictions questions
+
+**Model Training**
+
+Train on randomly sampled for model training
+Test on new data data
+
+Repeat process to find best model
+
+**Model performance measurements**
+
+Accuracy: --> classification
+- Accuracy
+- Precision
+- Recall
+  
+Error: --> regression
+
+if MSE too high can test non-linear models
+
+**ML risks**
+
+Poor performance on test:
+- low precision: lots of FP
+- low recall: missed lot of TP
+- large error: for regression
+
+Non-actionable model use cases:
+- run tests to see if affects buisness otucomes
+- A/B testing
+
+![A/B Test](../Images/ML%20for%20Business/AB%20Test.png)
+
+if tests don't work:
+- increase data
+- Build causal models to understand drivers
+- Run qualitative research
+- Change scope of problem: narrow or widen
+
 ## Managing ML projects
+
 In this subchapter:
 - ML mistakes
 - Communication management
 - ML in production
+
+**ML mistakes**
+
+- Shouldn't be ML first
+- Not enough data
+- Target variable definition
+- Late testing, no impact
+- Feature selection:
+  - Inference: choose variables that can be controlled, and Business has to be involved in feature selection
+  - Prediction: start with readily available data, then introduce new features iteratively.
+
+**Communication Management**
+
+Working groups:
+- recurring meetings
+- Define business requirements
+  - What is business situation?
+  - What is business opportunity?
+  - What action to take?
+- Review ML model
+- inference vs prediction
+- Baseline model results vs outline model updates
+- Market testing
+- Production
+  - are tests consistent and model stable
+
+Model performance and improvements:
+- Classification: which class is more expensive to mis-classify
+- Regression: error tolerance for prediction
+
+**ML in production**
+
+Production systems: live, customer facing and business critical
+
+Prototype ML:
+- Data Scientist
+- ML Engineers
+
+ML in production:
+- Software Engineers
+- Data Engineers
+  
