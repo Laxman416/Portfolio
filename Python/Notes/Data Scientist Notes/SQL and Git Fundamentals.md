@@ -449,21 +449,161 @@ WHERE t1.id = t2.id
 - Versions
 - Saving Files
 - Comparing Files
+
+**Versions**
+
+- Version control used to track and allow simultaneous development
+
+Shell commands:
+- `pwd`
+- `ls`
+- `cd`
+- `nano` save with Ctrl + O and exit with Ctrl + X
+- `echo` crete files
+
+**Saving files**
+
+Staging: `git add` `git add .`
+Commiting `git commit -m ''`
+
+![Staging Area Diagram](../Images/Git/Git%20Workflow.png)
+
+**Comparing files**
+
+`git diff file_name ` compare files not in staging area with comitted
+`git diff -r HEAD file_name` compare files in staging area with last commit
+
 ## Making changes
+
 **In this chapter:**
 - Storing data with GIT
 - Viewing changes
 - Undoing changes before committing
 - Restoring and reverting
+
+Commit Structure:
+- Commit: metadata
+- Tree: tracks names and locations in repo 
+- Blob: for each file: Binary large object
+  - Contain compressed screenshot of file's content
+
+`Git log` shows hash
+`git show hash#` 
+
+**Viewing changes**
+
+`git diff -r HEAD~1` second most recent commit
+`git show HEAD~1`
+`git diff HEAD~1 HEAD~2`
+
+`git annotate file`</br>
+- Hash, Author, Time, Line#, Line Content
+
+**Undoing changes**
+
+Unstage file:
+- `git reset HEAD summary_statistics.csv`
+- `git reset HEAD`
+
+Undo changes to an unstaged file:
+`git checkout -- file_name`
+`git checkout .`
+
+**Restoring and reverting**
+
+Use commit history using git log
+
+`git log -3`
+`git log --since = 'Month Day Year' --until = 'Month Day Year'`
+
+Revert:
+- `git checkout HEAD~1/HASH# filename`
+- `git checkout HEAD~1/HASH#`
+
+Clean:
+- `git clean - n` List untracked files
+- `git clean -f` Untracked files cleaned
+
 ## Git workflows
+
 **In this chapter:**
 - Configuring Git
 - Branches
 - Switching/Merging
 - Handling conflict
+
+**Configuring Git**
+
+`git config --list`
+
+3 levels:
+- `local`: 1 project
+- `global`: all projects
+- `system`: every user on pc
+
+**Branches:**
+
+![Branches](../Images/Git/branches.png)
+Branch for specific task
+
+- `git branch`
+- `git checkout -b branch_name` Create branches
+- `git diff main branch_name`
+
+Switching:
+- `git checkout branch_name`
+
+Merge:
+- `git merge source destination`
+
+Handling conflict:
+- File in different branches contain different contain that cant be merged
+
+
+![Conflicts](../Images/Git/Conflicts%20merge.png)
+
+- <<<<<< HEAD -> implies in current branch
+- line with equal signs centre of conflict
+- after means different content on same line
+- >>>>> branch -> other branch
+
+Prevent:
+- each branch for specific task
+
 ## Collaborating
+
 **In this chapter:**
 - Creating repos
 - Working with remotes
 - Gathering from remote
 - Pushing to remote
+
+**Creating**
+
+- `git init directory` Create news git folder
+- `git init` Existing project:
+
+Avoid Nested repositories
+
+**Remote Repo**
+
+- stored on cloud
+- `git clone path_to_project repo_name`
+- `git clone URL`
+
+**Gathering Remote**
+
+- `git fetch origin main` name of remote to local branch
+- `git fetch origin branch_name`
+
+- `git merge origin main`
+
+- `git pull origin main`: fetch and merge. pull origin to local main branch
+
+Can't pull with unsaved local changes
+
+**Pushing**
+`git push origin main`
+
+if errors: pull with message on txt file</br>
+then push again
