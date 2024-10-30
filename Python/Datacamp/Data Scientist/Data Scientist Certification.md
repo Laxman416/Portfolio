@@ -12,6 +12,7 @@
   - [Introduction to SQL](#introduction-to-sql)
   - [Intermediate SQL](#intermediate-sql)
   - [Project 1 - Analyzing Student's Mental Health](#project-1---analyzing-students-mental-health)
+- [Analysis using SQL](#analysis-using-sql)
   - [Joining Data in SQL](#joining-data-in-sql)
   - [Project 2 - Golden Era of Video Games](#project-2---golden-era-of-video-games)
   - [Introduction to Git](#introduction-to-git)
@@ -87,6 +88,9 @@
 
 ### Project 1 - Analyzing Student's Mental Health
 
+[Notebook](Projects/Mental%20Health%20-%20SQL/Mental%20Health%20notebook.ipynb)
+
+Analysis using SQL
 ---
 
 ### Joining Data in SQL
@@ -98,12 +102,16 @@
 - Outer Joins, Cross Joins, and Self Joins
 - Set Theory for SQL Joins
 - Subqueries
-
+  
 ---
 
 ### Project 2 - Golden Era of Video Games
 
+[Notebook](Projects/Video%20games%20-%20SQL/Video%20Games%20SQL%20notebook.ipynb)
 
+Analysis using SQL:
+- JOINS and subquerys
+  
 ---
 
 ### Introduction to Git
