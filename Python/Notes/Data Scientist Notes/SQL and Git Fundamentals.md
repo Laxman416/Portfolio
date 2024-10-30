@@ -438,7 +438,7 @@ FROM t1,
         MAX(indep_year) AS most_recent
      FROM t2
      GROUP BY continent) AS sub
-WHERE t1.id = t2.id
+WHERE t1.id = sub.id
 ```
 
 # Introduction to Git
@@ -535,6 +535,7 @@ Clean:
 **Configuring Git**
 
 `git config --list`
+`git config --global alias.st status`
 
 3 levels:
 - `local`: 1 project
