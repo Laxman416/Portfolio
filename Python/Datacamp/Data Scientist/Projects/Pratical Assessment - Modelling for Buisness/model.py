@@ -29,7 +29,7 @@ list_to_drop = ['servings', 'category_Dessert', 'category_One Dish Meal', 'categ
 
 nutritional_features = ['sugar','carbohydrate','calories','protein']
 
-def pre_formating(df, list_nutritional_features ):
+def pre_formating(df, list_nutritional_features):
     """
     Function to create dummy variables and create columns out of the existing features.
     New columns will be created for the nutrional features divide per serving
@@ -155,15 +155,15 @@ def main():
     best_model_rf = rf_model(X_train, y_train, SEED)
     # best_model_dt = dt_model(X_train, y_train, SEED)
     best_model_svc = svc_model(X_train, y_train, SEED)
-    # best_model_gbc = gbc_model(X_train, y_train, SEED)
+    best_model_gbc = gbc_model(X_train, y_train, SEED)
 
     # classifiers = [('Logistic Regression', best_model_lr)]
 
     classifiers = [('Logistic Regression', best_model_lr),
                 ('K Nearest Neighbors', best_model_knn),
                 ('Random Forest', best_model_rf),
-                ('SVC', best_model_svc)
-                #   ('Gradient Boosting Classifier', best_model_gbc)
+                ('SVC', best_model_svc),
+                ('Gradient Boosting Classifier', best_model_gbc)
                 ]
 
     for clf_name, clf in classifiers:

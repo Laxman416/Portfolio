@@ -6,9 +6,9 @@ def gbc_model(X_train, y_train, SEED):
     fits gbc model and returns best model
     """
     params_gbc = {
-        'n_estimators': [175, 200, 225], 
-        'learning_rate': [0.01, 0.02, 0.03],  
-        'max_depth': [3, 5, 7], 
+        'n_estimators': [200], 
+        'learning_rate': [0.01, 0.02],  
+        'max_depth': [3, 5], 
         'subsample': [0.8, 1.0],  
     }
 
