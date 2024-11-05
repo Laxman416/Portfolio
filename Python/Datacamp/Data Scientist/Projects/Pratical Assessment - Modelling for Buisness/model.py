@@ -38,10 +38,10 @@ def pre_formating(df, list_nutritional_features ):
     df = pd.get_dummies(df, columns=['category'], prefix='category')
 
 
-    # for feature in nutritional_features.copy():
-    #     column_name = f'{feature}_per_serving'
-    #     df[column_name] = df[feature] / df['servings']
-    #     list_nutritional_features .append(column_name)
+    for feature in nutritional_features.copy():
+        column_name = f'{feature}_per_serving'
+        df[column_name] = df[feature] / df['servings']
+        list_nutritional_features .append(column_name)
 
     return df
 
@@ -139,49 +139,57 @@ def working_code(clean_recipe_df, nutritional_features, list_to_drop):
 
     return X_train, X_test, y_train, y_test
 
-X_train, X_test, y_train, y_test = working_code(clean_recipe_df, nutritional_features, list_to_drop)
-# X_train, X_test, y_train, y_test = RFE_code(clean_recipe_df, nutritional_features)
+
+def main():
+
+    X_train, X_test, y_train, y_test = working_code(clean_recipe_df, nutritional_features, list_to_drop)
+    print(X_train.columns)
+        
+    # X_train, X_test, y_train, y_test = RFE_code(clean_recipe_df, nutritional_features)
 
 
-# Ensemble Learning
+    # Ensemble Learning
 
 
-from sklearn.ensemble import VotingClassifier
+    from sklearn.ensemble import VotingClassifier
 
-SEED = 9
+    SEED = 9
 
-best_model_lr = lr_model(X_train, y_train, SEED)
-best_model_knn = knn_model(X_train, y_train)
-best_model_rf = rf_model(X_train, y_train, SEED)
-best_model_dt = dt_model(X_train, y_train, SEED)
-best_model_svc = svc_model(X_train, y_train, SEED)
-best_model_gbc = gbc_model(X_train, y_train, SEED)
+    # best_model_lr = lr_model(X_train, y_train, SEED)
+    # best_model_knn = knn_model(X_train, y_train)
+    # best_model_rf = rf_model(X_train, y_train, SEED)
+    # best_model_dt = dt_model(X_train, y_train, SEED)
+    # best_model_svc = svc_model(X_train, y_train, SEED)
+    # best_model_gbc = gbc_model(X_train, y_train, SEED)
 
-from sklearn.metrics import confusion_matrix
-# classifiers = [('Logistic Regression', best_model_lr)]
+    # from sklearn.metrics import confusion_matrix
+    # # classifiers = [('Logistic Regression', best_model_lr)]
 
-classifiers = [('Logistic Regression', best_model_lr),
-              ('K Nearest Neighbors', best_model_knn),
-              ('Random Forest', best_model_rf),
-              ('SVC', best_model_svc),
-              ('Gradient Boosting Classifier', best_model_gbc)
-              ]
+    # classifiers = [('Logistic Regression', best_model_lr),
+    #             ('K Nearest Neighbors', best_model_knn),
+    #             ('Random Forest', best_model_rf),
+    #             ('SVC', best_model_svc),
+    #             ('Gradient Boosting Classifier', best_model_gbc)
+    #             ]
 
-for clf_name, clf in classifiers:
-  clf.fit(X_train, y_train)
-  y_pred = clf.predict(X_test)
-  accuracy = accuracy_score(y_test, y_pred)
-  print(f"{clf_name} Test Accuracy: {accuracy:.2f}")
+    # for clf_name, clf in classifiers:
+    # clf.fit(X_train, y_train)
+    # y_pred = clf.predict(X_test)
+    # accuracy = accuracy_score(y_test, y_pred)
+    # print(f"{clf_name} Test Accuracy: {accuracy:.2f}")
 
-    
-vc = VotingClassifier(estimators = classifiers, voting = 'soft')
+        
+    # vc = VotingClassifier(estimators = classifiers, voting = 'soft')
 
-print("-------------------")
-vc.fit(X_train, y_train)
-y_pred_vc = vc.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred_vc)
-print(f"VC Accuracy: {accuracy:.2f}")
+    # print("-------------------")
+    # vc.fit(X_train, y_train)
+    # y_pred_vc = vc.predict(X_test)
+    # accuracy = accuracy_score(y_test, y_pred_vc)
+    # print(f"VC Accuracy: {accuracy:.2f}")
 
-cm_vc = confusion_matrix(y_test, y_pred_vc)
-print("Voting Classifier (VC) Confusion Matrix:\n", cm_vc)
+    # cm_vc = confusion_matrix(y_test, y_pred_vc)
+    # print("Voting Classifier (VC) Confusion Matrix:\n", cm_vc)
 
+    return 
+
+main()
