@@ -10,15 +10,15 @@ def lr_model(X_train, y_train, SEED):
 
     # Define the parameter grid
     params_lr = {
-        'C': [0.02, 0.03],  # Inverse of regularization strength
-        'penalty': ['l2'],  # Regularization type
+        'C': [0.03,0.04, 0.05,0.06],  # Inverse of regularization strength
+        'penalty': ['l1', 'none'],  # Regularization type
         'solver': ['liblinear', 'sag'],  # Optimization algorithm
         'max_iter': [25,50],  # Maximum number of iterations for solvers
-        'class_weight': [{0: 1, 1: 0.635},{0: 1, 1: 0.64},{0: 1, 1: 0.645},'balanced'],  # Class weights
+        'class_weight': ['balanced'],  # Class weights
     }
 
     # Example usage with GridSearchCV
-    lr = LogisticRegression(random_state = SEED)
+    lr = LogisticRegression(random_state = SEED, class_weight={0: 1, 1: 3})
 
     grid_lr = GridSearchCV(estimator = lr,
                         param_grid=params_lr,

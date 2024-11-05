@@ -4,10 +4,10 @@ from sklearn.model_selection import GridSearchCV
 
 def knn_model(X_train, y_train):
     """
-    Fits knn model using GridSearchCV and returns best model
+    
     """
     params_knn = {
-        'n_neighbors': [1,2,3,4],  # Number of neighbors to test
+        'n_neighbors': [3, 5, 7, 9, 11],  # Number of neighbors to test
         'weights': ['uniform', 'distance'],  # Weights options
         'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],  # Algorithm options
         'metric': ['euclidean', 'manhattan', 'minkowski'],  # Distance metrics
