@@ -11,7 +11,7 @@ def lr_model(X_train, y_train, SEED):
     # Define the parameter grid
     params_lr = {
         'C': [0.03,0.04, 0.05,0.06],  # Inverse of regularization strength
-        'penalty': ['l1', 'none'],  # Regularization type
+        'penalty': ['l1', 'l2'],  # Regularization type
         'solver': ['liblinear', 'sag'],  # Optimization algorithm
         'max_iter': [25,50],  # Maximum number of iterations for solvers
         'class_weight': ['balanced'],  # Class weights

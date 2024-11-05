@@ -143,45 +143,47 @@ X_train, X_test, y_train, y_test = working_code(clean_recipe_df, nutritional_fea
 # X_train, X_test, y_train, y_test = RFE_code(clean_recipe_df, nutritional_features)
 
 
-# Ensemble Learning
+def main():
+    # Ensemble Learning
+    from sklearn.ensemble import VotingClassifier
+    from sklearn.metrics import confusion_matrix
 
+    SEED = 9
 
-from sklearn.ensemble import VotingClassifier
+    best_model_lr = lr_model(X_train, y_train, SEED)
+    best_model_knn = knn_model(X_train, y_train)
+    best_model_rf = rf_model(X_train, y_train, SEED)
+    # best_model_dt = dt_model(X_train, y_train, SEED)
+    best_model_svc = svc_model(X_train, y_train, SEED)
+    # best_model_gbc = gbc_model(X_train, y_train, SEED)
 
-SEED = 9
+    # classifiers = [('Logistic Regression', best_model_lr)]
 
-best_model_lr = lr_model(X_train, y_train, SEED)
-best_model_knn = knn_model(X_train, y_train)
-best_model_rf = rf_model(X_train, y_train, SEED)
-best_model_dt = dt_model(X_train, y_train, SEED)
-best_model_svc = svc_model(X_train, y_train, SEED)
-best_model_gbc = gbc_model(X_train, y_train, SEED)
+    classifiers = [('Logistic Regression', best_model_lr),
+                ('K Nearest Neighbors', best_model_knn),
+                ('Random Forest', best_model_rf),
+                ('SVC', best_model_svc)
+                #   ('Gradient Boosting Classifier', best_model_gbc)
+                ]
 
-from sklearn.metrics import confusion_matrix
-# classifiers = [('Logistic Regression', best_model_lr)]
+    for clf_name, clf in classifiers:
+        clf.fit(X_train, y_train)
+        y_pred = clf.predict(X_test)
+        accuracy = accuracy_score(y_test, y_pred)
+        print(f"{clf_name} Test Accuracy: {accuracy:.2f}")
 
-classifiers = [('Logistic Regression', best_model_lr),
-              ('K Nearest Neighbors', best_model_knn),
-              ('Random Forest', best_model_rf),
-              ('SVC', best_model_svc),
-              ('Gradient Boosting Classifier', best_model_gbc)
-              ]
+            
+    vc = VotingClassifier(estimators = classifiers, voting = 'soft')
 
-for clf_name, clf in classifiers:
-  clf.fit(X_train, y_train)
-  y_pred = clf.predict(X_test)
-  accuracy = accuracy_score(y_test, y_pred)
-  print(f"{clf_name} Test Accuracy: {accuracy:.2f}")
+    print("-------------------")
+    vc.fit(X_train, y_train)
+    y_pred_vc = vc.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred_vc)
+    print(f"VC Accuracy: {accuracy:.2f}")
 
-    
-vc = VotingClassifier(estimators = classifiers, voting = 'soft')
+    cm_vc = confusion_matrix(y_test, y_pred_vc)
+    print("Voting Classifier (VC) Confusion Matrix:\n", cm_vc)
 
-print("-------------------")
-vc.fit(X_train, y_train)
-y_pred_vc = vc.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred_vc)
-print(f"VC Accuracy: {accuracy:.2f}")
+    return
 
-cm_vc = confusion_matrix(y_test, y_pred_vc)
-print("Voting Classifier (VC) Confusion Matrix:\n", cm_vc)
-
+main()
