@@ -184,7 +184,7 @@ R^2 dependent on way data is split.
 use cross-validation
 split data into 5 folds
 
-![Split data into folds](Images/Supervised%20ML/image.png)
+![Split data into folds](../Images/Supervised%20ML/image.png)
 
 5 values of $R^2$
 
@@ -288,7 +288,7 @@ classification_report = classification_report(y_test, y_pred)
 - if p > 0.5, data labeled as 1
 - if p < 0.5, data labeled as 0
 
-![Linear decision binary](Images/Supervised%20ML/image-1.png)
+![Linear decision binary](../Images/Supervised%20ML/image-1.png)
 
 ```python
 from sklearn.liner_model import LogisticRegression
@@ -304,7 +304,7 @@ y_pred_probs = logreg.predict_proba(X_test)[:, 1] # Selcet 2nd column out of 2D 
 ROC curve:
 varying thresholds:</br>
 if ROC curve above -> better than randomly guessing
-![alt text](Images/Supervised%20ML/image-2.png)
+![alt text](../Images/Supervised%20ML/image-2.png)
 
 ```python
 from sklearn.metrics import roc_curve
@@ -332,7 +332,7 @@ Hyperparameter Tuning:
 - use cross-validation to avoid overfitting
 
 Grid search cross-validation
-![alt text](Images/Supervised%20ML/image-3.png)
+![alt text](../Images/Supervised%20ML/image-3.png)
 Choose the hyperparameter that perform best
 
 ```python
@@ -624,7 +624,7 @@ model = KMeans(n_clusters = 3)
 model.fit(samples)
 inertia = model.inertia_
 ```
-![Inertia vs num of clusters](Images/Unsupervised%20Learning/Clusters.png)
+![Inertia vs num of clusters](../Images/Unsupervised%20Learning/Clusters.png)
 - choose the elbow for num of clusters
 
 **Transforming Features for better clustering**
@@ -678,7 +678,7 @@ can plot graph - dendrogram
 - at each step, two closest clusters are merged
 - continue into a single cluster
 
-![Dendrogram example](Images/Unsupervised%20Learning/Dendrogram.png)
+![Dendrogram example](../Images/Unsupervised%20Learning/Dendrogram.png)
 
 ```python
 import matplotlib.pyplot as plt
@@ -751,7 +751,7 @@ PCA:
 - Rotates data samples to be aligned with axes
 - Shifts data samples -> mean 0
 
-![PCA transformation](Images/Unsupervised%20Learning/PCA%20Transformation.png.png)
+![PCA transformation](../Images/Unsupervised%20Learning/PCA%20Transformation.png)
 - `fit()` learns the transformation from data
 - `transform()` applies learned transformation or to new data
 
@@ -912,7 +912,7 @@ Classification-tree:
 - don't need scaling (Standardization)
 
 Tree learns if else questions:
-![Decision-tree-diagram](Images/ML%20Tree%20Based/Decision-tree-diagram.png)
+![Decision-tree-diagram](../Images/ML%20Tree%20Based/Decision-tree-diagram.png)
 maximum_depth: 2 (top to bottom)
 
 ```python
@@ -937,7 +937,7 @@ Decision Regions:</br>
 region in the feature space where all instances are assigned to one class label
 seperated by `Decision Boundary`
 
-![Decision Regions](Images/ML%20Tree%20Based/Decision%20Regions%20-%20CART%20vs%20Linear.png)
+![Decision Regions](../Images/ML%20Tree%20Based/Decision%20Regions%20-%20CART%20vs%20Linear.png)
 
 **Classification tree learning**
 Node: question/prediction
@@ -982,7 +982,7 @@ When Regression Tree:
 - impurity of tree measured on rmse
 - leafs try to minimise rmse
 
-![alt text](Images/ML%20Tree%20Based/LinReg%20vs%20RegTree.png)
+![alt text](../Images/ML%20Tree%20Based/LinReg%20vs%20RegTree.png)
 
 ## The Bias-Variance Tradeoff
 
@@ -1006,7 +1006,7 @@ $$\hat{f} = \text{bias}^2 + \text{variance} + \text{irreducible error}  $$
 - bias: error that tells how much $\hat{f} \neq f$ average. high bias -> underfitting
 - variance: how much $\hat{f}$ is inconsistent over different training sets. High varience -> overfitting
 
-![Generalized Error](Images/ML%20Tree%20Based/generalised%20error.png)
+![Generalized Error](../Images/ML%20Tree%20Based/generalised%20error.png)
 
 **Diagnosing bias and variance**
 
@@ -1071,7 +1071,7 @@ Solution: Ensemble Learning:
 - Meta-model: aggregates predictions of individual models
 - Final predictions: more robust and less prone to errors
 
-![Ensemble Learning](Images/ML%20Tree%20Based/Ensemble%20Learning.png)
+![Ensemble Learning](../Images/ML%20Tree%20Based/Ensemble%20Learning.png)
 
 Voting Classifier:
 - Binary Classification task
@@ -1130,7 +1130,7 @@ In this subchapter:
 - In regression, aggregates predictions
 - `BaggingClassifier` or `BaggingRegressor`
 
-![Bagging](Images/ML%20Tree%20Based/Bagging.png)
+![Bagging](../Images/ML%20Tree%20Based/Bagging.png)
 
 ```python
 from sklearn.ensemble import BaggingClassifier
@@ -1160,7 +1160,7 @@ accuracy = accuracy_score(y_test, y_pred)
 - On average 63% are sampled in Bagging: 37% OOB
 - OOB used to evalutate performance of model
 
-![OOB Evaluation](Images/ML%20Tree%20Based/OOB%20Evaluation.png)
+![OOB Evaluation](../Images/ML%20Tree%20Based/OOB%20Evaluation.png)
 
 ```python
 
