@@ -38,10 +38,10 @@ def pre_formating(df, list_nutritional_features ):
     df = pd.get_dummies(df, columns=['category'], prefix='category')
 
 
-    # for feature in nutritional_features.copy():
-    #     column_name = f'{feature}_per_serving'
-    #     df[column_name] = df[feature] / df['servings']
-    #     list_nutritional_features .append(column_name)
+    for feature in nutritional_features.copy():
+        column_name = f'{feature}_per_serving'
+        df[column_name] = df[feature] / df['servings']
+        list_nutritional_features .append(column_name)
 
     return df
 
