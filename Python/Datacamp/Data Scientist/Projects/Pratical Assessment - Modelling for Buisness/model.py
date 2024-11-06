@@ -21,11 +21,12 @@ mm_scaler = MinMaxScaler()
 clean_recipe_df = pd.read_csv('clean_recipe_df.csv')
 SEED = 9
 
-# list_to_drop = ['servings', 'category_Dessert', 'category_One Dish Meal', 'category_Lunch/Snacks', 'category_Meat', 'calories', 'sugar', 'carbohydrate', 'category_Pork', 'recipe','high_traffic'] # Gives accuracy of 0.80
+list_to_drop = ['servings', 'category_Dessert', 'category_One Dish Meal', 'category_Lunch/Snacks', 'category_Meat', 'calories', 'sugar', 'carbohydrate', 'category_Pork', 'recipe','high_traffic'] # Gives accuracy of 0.80
+# list_to_drop = ['category_Dessert', 'category_One Dish Meal', 'category_Lunch/Snacks', 'category_Meat', 'category_Pork', 'recipe','high_traffic', 'calories_per_serving', 'sugar_per_serving', 'carbohydrate_per_serving'] # Trying to ge accuracy of 0.80
 
 # list_to_drop = ['recipe', 'calories', 'carbohydrate', 'sugar', 'protein', 'category_Beverages', 'sugar_per_serving', 'carbohydrate_per_serving', 'calories_per_serving', 'protein_per_serving', 'high_traffic'] # From RFE old version
 
-list_to_drop = ['servings', 'high_traffic', 'category_Dessert', 'category_Lunch/Snacks', 'category_Meat', 'category_One Dish Meal', 'category_Pork', 'sugar','carbohydrate','calories','protein'] # From RFE new version
+# list_to_drop = ['servings', 'high_traffic', 'category_Dessert', 'category_Lunch/Snacks', 'category_Meat', 'category_One Dish Meal', 'category_Pork', 'sugar','carbohydrate','calories','protein'] # From RFE new version
 
 nutritional_features = ['sugar','carbohydrate','calories','protein']
 
@@ -39,10 +40,11 @@ def pre_formating(df, list_nutritional_features):
 
 
     for feature in nutritional_features.copy():
-        column_name = f'{feature}_per_serving'
-        df[column_name] = df[feature] / df['servings']
-        list_nutritional_features.append(column_name)
-        df.drop(feature, axis=1, inplace=True)
+        if feature != 'protein':
+            column_name = f'{feature}_per_serving'
+            df[column_name] = df[feature] / (df['servings'])
+            list_nutritional_features.append(column_name)
+            df.drop(feature, axis=1, inplace=True)
 
     df.drop(['servings'], axis = 1, inplace = True)
 
@@ -100,6 +102,7 @@ def transform_data(df, scaler, min_max_scaler, test=False):
             df[available_nutritional_features] = scaler.transform(df[available_nutritional_features])
         if 'servings' in df.columns:
             df['servings'] = mm_scaler.transform(df[['servings']])
+
     return df
 
 
@@ -116,7 +119,7 @@ def rfe_selection(X_train_rfe, y_train_rfe, n_features_to_select):
 
     return selected_features
 
-def RFE_code(clean_recipe_df, nutritional_features):
+def RFE_code(clean_recipe_df, nutritional_features, num_features):
 
     clean_recipe_df = pre_formating(clean_recipe_df, nutritional_features)
     all_columns = clean_recipe_df.columns.tolist()
@@ -124,7 +127,7 @@ def RFE_code(clean_recipe_df, nutritional_features):
 
     X_train_rfe = transform_data(X_train_rfe, scaler, mm_scaler, False)
     X_test_rfe = transform_data(X_test_rfe, scaler, mm_scaler, True)
-    list_to_keep = rfe_selection(X_train_rfe, y_train_rfe, 10)
+    list_to_keep = rfe_selection(X_train_rfe, y_train_rfe, num_features)
     list_to_drop_rfe = [col for col in all_columns if col not in list_to_keep]
     # list_to_drop_rfe.append('high_traffic')
     print(f"RFE Columns to Drop: {list_to_drop_rfe}")
@@ -155,21 +158,19 @@ def main():
     SEED = 9
 
     # X_train, X_test, y_train, y_test = working_code(clean_recipe_df, nutritional_features, list_to_drop)
-    X_train, X_test, y_train, y_test = RFE_code(clean_recipe_df, nutritional_features)
+    X_train, X_test, y_train, y_test = RFE_code(clean_recipe_df, nutritional_features, num_features=11)
     print(f"X train columns: {X_train.columns}")
 
     best_model_lr = lr_model(X_train, y_train, SEED)
-    best_model_knn = knn_model(X_train, y_train)
     best_model_rf = rf_model(X_train, y_train, SEED)
-    ###### best_model_dt = dt_model(X_train, y_train, SEED)
-    best_model_svc = svc_model(X_train, y_train, SEED)
+    # best_model_svc = svc_model(X_train, y_train, SEED)
     best_model_gbc = gbc_model(X_train, y_train, SEED)
 
     # classifiers = [('Logistic Regression', best_model_lr)]
 
     classifiers = [('Logistic Regression', best_model_lr),
                 ('Random Forest', best_model_rf),
-                ('SVC', best_model_svc),
+                # ('SVC', best_model_svc),
                 ('Gradient Boosting Classifier', best_model_gbc)
                 ]
 
@@ -177,7 +178,7 @@ def main():
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
         accuracy = accuracy_score(y_test, y_pred)
-        print(f"{clf_name} Test Accuracy: {accuracy:.2f}")
+        print(f"{clf_name} Test Accuracy: {accuracy:.3f}")
 
             
     vc = VotingClassifier(estimators = classifiers, voting = 'soft')
@@ -185,24 +186,11 @@ def main():
     vc.fit(X_train, y_train)
     y_pred_vc = vc.predict(X_test)
     accuracy_vc = accuracy_score(y_test, y_pred_vc)
-    print(f"VC Accuracy: {accuracy_vc:.2f}")
+    print(f"VC Accuracy: {accuracy_vc:.3f}")
 
     cm_vc = confusion_matrix(y_test, y_pred_vc)
     print("Voting Classifier (VC) Confusion Matrix:\n", cm_vc)
 
-    stack = StackingClassifier(
-        estimators= classifiers,
-        final_estimator= best_model_svc  # Use SVC as the meta-model
-    )
-
-    stack.fit(X_train, y_train)
-
-    y_pred_stack = stack.predict(X_test)
-    accuracy_stack = accuracy_score(y_test, y_pred_stack)
-    print(f"Stack Accuracy: {accuracy_stack:.2f}")
-
-    cm_stack = confusion_matrix(y_test, y_pred_stack)
-    print("Stack Classifier (VC) Confusion Matrix:\n", cm_stack)
     return
 
 main()
