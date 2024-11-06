@@ -1,32 +1,23 @@
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report
-from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import accuracy_score, classification_report, precision_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.ensemble import StackingClassifier
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import RFE
-from knn_model import knn_model
 from lr_model import lr_model
 from rf_model import rf_model
-from svc_model import svc_model
 from gbc_model import gbc_model
-
+from sklearn.ensemble import VotingClassifier
+from sklearn.metrics import confusion_matrix
 
 scaler = StandardScaler()
 mm_scaler = MinMaxScaler()
 clean_recipe_df = pd.read_csv('clean_recipe_df.csv')
 SEED = 9
 
-list_to_drop = ['servings', 'category_Dessert', 'category_One Dish Meal', 'category_Lunch/Snacks', 'category_Meat', 'calories', 'sugar', 'carbohydrate', 'category_Pork', 'recipe','high_traffic'] # Gives accuracy of 0.80
-# list_to_drop = ['category_Dessert', 'category_One Dish Meal', 'category_Lunch/Snacks', 'category_Meat', 'category_Pork', 'recipe','high_traffic', 'calories_per_serving', 'sugar_per_serving', 'carbohydrate_per_serving'] # Trying to ge accuracy of 0.80
-
-# list_to_drop = ['recipe', 'calories', 'carbohydrate', 'sugar', 'protein', 'category_Beverages', 'sugar_per_serving', 'carbohydrate_per_serving', 'calories_per_serving', 'protein_per_serving', 'high_traffic'] # From RFE old version
-
-# list_to_drop = ['servings', 'high_traffic', 'category_Dessert', 'category_Lunch/Snacks', 'category_Meat', 'category_One Dish Meal', 'category_Pork', 'sugar','carbohydrate','calories','protein'] # From RFE new version
+list_to_drop = ['servings', 'category_Dessert', 'category_One Dish Meal', 'category_Lunch/Snacks', 'category_Meat', 'calories', 'sugar', 'carbohydrate', 'category_Pork', 'recipe','high_traffic'] # Gives accuracy of 0.80, no new transformation
 
 nutritional_features = ['sugar','carbohydrate','calories','protein']
 
@@ -40,10 +31,11 @@ def pre_formating(df, list_nutritional_features):
 
 
     for feature in nutritional_features.copy():
-        column_name = f'{feature}_per_serving^2'
-        df[column_name] = df[feature] / (df['servings']**2)
-        list_nutritional_features.append(column_name)
-        df.drop(feature, axis=1, inplace=True)
+        if feature != 'protein':
+            column_name = f'{feature}_per_serving'
+            df[column_name] = df[feature] / (df['servings'])
+            list_nutritional_features.append(column_name)
+            df.drop(feature, axis=1, inplace=True)
 
     df.drop(['servings'], axis = 1, inplace = True)
 
@@ -137,58 +129,52 @@ def RFE_code(clean_recipe_df, nutritional_features, num_features):
 
     return X_train, X_test, y_train, y_test
 
-### Working Code
-
-def working_code(clean_recipe_df, nutritional_features, list_to_drop):
-    clean_recipe_df = pre_formating(clean_recipe_df, nutritional_features)
-    X_train, X_test, y_train, y_test = format_data_to_model(clean_recipe_df, list_to_drop)
-
-    X_train = transform_data(X_train, scaler, mm_scaler, False)
-    X_test = transform_data(X_test, scaler, mm_scaler, True)
-
-    return X_train, X_test, y_train, y_test
-
 
 def main():
     # Ensemble Learning
-    from sklearn.ensemble import VotingClassifier
-    from sklearn.metrics import confusion_matrix
 
     SEED = 9
 
-    # X_train, X_test, y_train, y_test = working_code(clean_recipe_df, nutritional_features, list_to_drop)
     X_train, X_test, y_train, y_test = RFE_code(clean_recipe_df, nutritional_features, num_features=11)
     print(f"X train columns: {X_train.columns}")
 
     best_model_lr = lr_model(X_train, y_train, SEED)
     best_model_rf = rf_model(X_train, y_train, SEED)
-    # best_model_svc = svc_model(X_train, y_train, SEED)
     best_model_gbc = gbc_model(X_train, y_train, SEED)
 
-    # classifiers = [('Logistic Regression', best_model_lr)]
 
     classifiers = [('Logistic Regression', best_model_lr),
                 ('Random Forest', best_model_rf),
-                # ('SVC', best_model_svc),
                 ('Gradient Boosting Classifier', best_model_gbc)
                 ]
+
+    cm_dict = {}
+    precision_score_dict = {}
 
     for clf_name, clf in classifiers:
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
         accuracy = accuracy_score(y_test, y_pred)
         print(f"{clf_name} Test Accuracy: {accuracy:.3f}")
+        cm = confusion_matrix(y_test, y_pred)
+        cm_dict[clf_name] = cm
+        precision = precision_score(y_test, y_pred)
+        print(f"{clf_name} Test Precision: {precision:.3f}")
 
-            
-    vc = VotingClassifier(estimators = classifiers, voting = 'soft')
+    vc = VotingClassifier(estimators = classifiers, voting = 'soft', weights = [0.782,0.81,0.782])
     print("-------------------")
     vc.fit(X_train, y_train)
     y_pred_vc = vc.predict(X_test)
     accuracy_vc = accuracy_score(y_test, y_pred_vc)
+    precision_vc = precision_score(y_test, y_pred_vc)
+
     print(f"VC Accuracy: {accuracy_vc:.3f}")
+    print(f"VC Precision: {precision_vc:.3f}")
 
     cm_vc = confusion_matrix(y_test, y_pred_vc)
     print("Voting Classifier (VC) Confusion Matrix:\n", cm_vc)
+
+    print("Voting Classifier (VC) Confusion Matrix:\n", cm_dict['Random Forest'])
 
     return
 

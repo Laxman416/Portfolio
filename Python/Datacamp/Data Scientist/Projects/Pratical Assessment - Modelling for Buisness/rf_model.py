@@ -20,7 +20,7 @@ def rf_model(X_train, y_train, SEED):
                         cv=10,
                         n_jobs=-1,
                         verbose=1)
-
+    
     grid_rf.fit(X_train, y_train)
 
     # Get the best parameters
