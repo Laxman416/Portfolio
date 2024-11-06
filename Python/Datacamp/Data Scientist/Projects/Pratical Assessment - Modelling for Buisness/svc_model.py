@@ -6,9 +6,9 @@ def svc_model(X_train, y_train, SEED):
     Fits svc model and returns best model
     """
     params_svc = {
-        'C': [0.7, 1, 2],  # Regularization parameter
+        'C': [0.7],  # Regularization parameter
         'kernel': ['linear'],  # Kernel type
-        'gamma': ['scale', 'auto']  
+        'gamma': ['scale']  
     }
 
     svc = SVC(probability=True, random_state=SEED)
@@ -18,7 +18,7 @@ def svc_model(X_train, y_train, SEED):
                             scoring='precision',
                             cv=10,
                             n_jobs=-1,
-                            verbose=1)
+                            verbose=2)
 
     # Fit GridSearchCV to the data
     grid_svc.fit(X_train, y_train)
