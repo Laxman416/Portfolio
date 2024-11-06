@@ -41,8 +41,8 @@ def pre_formating(df, list_nutritional_features):
 
     for feature in nutritional_features.copy():
         if feature != 'protein':
-            column_name = f'{feature}_per_serving'
-            df[column_name] = df[feature] / (df['servings'])
+            column_name = f'{feature}_per_serving^2'
+            df[column_name] = df[feature] / (df['servings']**2)
             list_nutritional_features.append(column_name)
             df.drop(feature, axis=1, inplace=True)
 
