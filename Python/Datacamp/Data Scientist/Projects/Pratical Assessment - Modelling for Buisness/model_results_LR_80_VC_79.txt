@@ -1,0 +1,32 @@
+Logistic Regression:
+    Accuracy: 0.80
+    Precision: 0.84
+
+    Confusion Matrix:
+    [55 17]    [TN, FP]
+    [19 88]    [FN, TP]
+
+Random Forest:
+    Accuracy: 0.77
+    Precision: 0.79
+
+    Confusion Matrix:
+    [48 24]    [TN, FP]
+    [18 89]    [FN, TP]
+
+Gradient Boosting Classifier:
+    Accuracy: 0.79
+    Precision: 0.83
+
+    Confusion Matrix:
+    [55 17]    [TN, FP]
+    [21 86]    [FN, TP]
+
+Voting Classifier:
+    Accuracy: 0.79
+    Precision: 0.83
+
+    Confusion Matrix:
+    [54 18]    [TN, FP]
+    [19 88]    [FN, TP]
+

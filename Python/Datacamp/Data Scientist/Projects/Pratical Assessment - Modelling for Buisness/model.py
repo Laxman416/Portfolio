@@ -29,13 +29,28 @@ def pre_formating(df, list_nutritional_features):
     # Creates dummy variables
     df = pd.get_dummies(df, columns=['category'], prefix='category')
 
+    # # RF score 0.81
+    # for feature in nutritional_features.copy():
+    #     if feature != 'protein':
+    #         column_name = f'{feature}_per_serving'
+    #         df[column_name] = df[feature] / (df['servings'])
+    #         list_nutritional_features.append(column_name)
+    #         df.drop(feature, axis=1, inplace=True)
 
+    # LR 0.80 score and VC 0.80
     for feature in nutritional_features.copy():
-        if feature != 'protein':
             column_name = f'{feature}_per_serving'
-            df[column_name] = df[feature] / (df['servings'])
+            df[column_name] = df[feature] / (df['servings']**2)
             list_nutritional_features.append(column_name)
             df.drop(feature, axis=1, inplace=True)
+
+    # # LR 0.80 score and VC 0.79
+    # for feature in nutritional_features.copy():
+    #     if feature != 'protein':
+    #         column_name = f'{feature}_per_serving'
+    #         df[column_name] = df[feature] / (df['servings']**2)
+    #         list_nutritional_features.append(column_name)
+    #         df.drop(feature, axis=1, inplace=True)
 
     df.drop(['servings'], axis = 1, inplace = True)
 
@@ -129,6 +144,29 @@ def RFE_code(clean_recipe_df, nutritional_features, num_features):
 
     return X_train, X_test, y_train, y_test
 
+def save_metrics_to_txt(accuracy_dict, precision_dict, cm_dict, file_name):
+    with open(file_name, 'w') as file:
+        # Loop through each classifier name
+        for clf_name in accuracy_dict:
+            file.write(f"{clf_name}:\n")
+            
+            # Write Accuracy
+            accuracy = accuracy_dict[clf_name]
+            file.write(f"    Accuracy: {accuracy:.2f}\n")
+            
+            # Write Precision
+            precision = precision_dict[clf_name]
+            file.write(f"    Precision: {precision:.2f}\n")
+            
+            # Write Confusion Matrix
+            cm = cm_dict[clf_name]
+            file.write("\n")
+
+            file.write(f"    Confusion Matrix:\n")
+            file.write(f"    {cm[0]}    [TN, FP]\n")
+            file.write(f"    {cm[1]}    [FN, TP]\n")
+            file.write("\n")
+    return
 
 def main():
     # Ensemble Learning
@@ -150,15 +188,18 @@ def main():
 
     cm_dict = {}
     precision_score_dict = {}
+    accuracy_score_dict = {}
 
     for clf_name, clf in classifiers:
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
         accuracy = accuracy_score(y_test, y_pred)
+        accuracy_score_dict[clf_name] = accuracy
         print(f"{clf_name} Test Accuracy: {accuracy:.3f}")
         cm = confusion_matrix(y_test, y_pred)
         cm_dict[clf_name] = cm
         precision = precision_score(y_test, y_pred)
+        precision_score_dict[clf_name] = precision
         print(f"{clf_name} Test Precision: {precision:.3f}")
 
     vc = VotingClassifier(estimators = classifiers, voting = 'soft', weights = [0.782,0.81,0.782])
@@ -167,14 +208,23 @@ def main():
     y_pred_vc = vc.predict(X_test)
     accuracy_vc = accuracy_score(y_test, y_pred_vc)
     precision_vc = precision_score(y_test, y_pred_vc)
+    cm_vc = confusion_matrix(y_test, y_pred_vc)
+
+    # Append VC results to dictionaries
+    accuracy_score_dict['Voting Classifier'] = accuracy_vc
+    precision_score_dict['Voting Classifier'] = precision_vc
+    cm_dict['Voting Classifier'] = cm_vc
 
     print(f"VC Accuracy: {accuracy_vc:.3f}")
     print(f"VC Precision: {precision_vc:.3f}")
 
-    cm_vc = confusion_matrix(y_test, y_pred_vc)
+            
     print("Voting Classifier (VC) Confusion Matrix:\n", cm_vc)
 
-    print("Voting Classifier (VC) Confusion Matrix:\n", cm_dict['Random Forest'])
+    print("Random Forest (RF) Confusion Matrix:\n", cm_dict['Random Forest'])
+    print("Logistic Regression (LR) Confusion Matrix:\n", cm_dict['Logistic Regression'])
+
+    save_metrics_to_txt(accuracy_score_dict, precision_score_dict, cm_dict, 'model_results.txt')
 
     return
 
