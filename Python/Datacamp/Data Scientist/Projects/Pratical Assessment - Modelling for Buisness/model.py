@@ -29,25 +29,27 @@ def pre_formating(df, list_nutritional_features):
     # Creates dummy variables
     df = pd.get_dummies(df, columns=['category'], prefix='category')
 
+    # # No additional features gets:
+    
     # # RF score 0.81
-    # for feature in nutritional_features.copy():
-    #     if feature != 'protein':
-    #         column_name = f'{feature}_per_serving'
-    #         df[column_name] = df[feature] / (df['servings'])
-    #         list_nutritional_features.append(column_name)
-    #         df.drop(feature, axis=1, inplace=True)
-
-    # LR 0.80 score and VC 0.80
     for feature in nutritional_features.copy():
+        if feature != 'protein':
             column_name = f'{feature}_per_serving'
-            df[column_name] = df[feature] / (df['servings']**2)
+            df[column_name] = df[feature] / (df['servings'])
             list_nutritional_features.append(column_name)
             df.drop(feature, axis=1, inplace=True)
+
+    # LR 0.80 score and VC 0.80
+    # for feature in nutritional_features.copy():
+    #         column_name = f'{feature}_per_serving^2'
+    #         df[column_name] = df[feature] / (df['servings']**2)
+    #         list_nutritional_features.append(column_name)
+    #         df.drop(feature, axis=1, inplace=True)
 
     # # LR 0.80 score and VC 0.79
     # for feature in nutritional_features.copy():
     #     if feature != 'protein':
-    #         column_name = f'{feature}_per_serving'
+    #         column_name = f'{feature}_per_serving^2'
     #         df[column_name] = df[feature] / (df['servings']**2)
     #         list_nutritional_features.append(column_name)
     #         df.drop(feature, axis=1, inplace=True)

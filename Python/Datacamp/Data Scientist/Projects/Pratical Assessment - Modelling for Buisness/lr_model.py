@@ -18,7 +18,7 @@ def lr_model(X_train, y_train, SEED):
     }
 
     # Example usage with GridSearchCV
-    lr = LogisticRegression(random_state = SEED, class_weight={0: 1, 1: 3})
+    lr = LogisticRegression(random_state = SEED)
 
     grid_lr = GridSearchCV(estimator = lr,
                         param_grid=params_lr,
