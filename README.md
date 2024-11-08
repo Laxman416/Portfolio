@@ -9,6 +9,8 @@
   - [📗 Python Projects](#-python-projects)
     - [📗 Project 1: Measuring Production Asymmetry of Neutral Charm Mesons](#-project-1-measuring-production-asymmetry-of-neutral-charm-mesons)
     - [📗 Project 2: Extended Study on Measuring Production Asymmetry of Neutral Charm Mesons](#-project-2-extended-study-on-measuring-production-asymmetry-of-neutral-charm-mesons)
+    - [📗 Project 3: Supermarket Loyalty](#-project-3-supermarket-loyalty)
+    - [📗 Project 4: Optimising Homepage Recipe Selection to Drive Traffic](#-project-4-optimising-homepage-recipe-selection-to-drive-traffic)
   - [📄 Python Certification](#-python-certification)
     - [📄 Associate Data Scientist in Python from DataCamp](#-associate-data-scientist-in-python-from-datacamp)
     - [📄 Data Scientist in Python from DataCamp](#-data-scientist-in-python-from-datacamp)
@@ -91,6 +93,21 @@ These assessments test my attention to detail, testing for syntax and logic erro
                   This project focused on increasing the dataset, creating a new model for the larger dataset, modelling the detection asymmetry and creating a simulation to compare the actual results with simulated results.*
 
     * Key Libraries Used: matplotlib, argparse, pandas, ROOT, NumPy, SciPy
+
+#### 📗 Project 3: Supermarket Loyalty
+
+  - [Project Notebook](Python/Datacamp/Associate%20Data%20Scientist/Projects/Sample%20Exam/Sample%20Exam%20-%20Supermarket%20Loyalty.ipynb)
+
+    *Description: Final practical assessment for the Datacamp Associate Data Certificate.
+
+
+#### 📗 Project 4: Optimising Homepage Recipe Selection to Drive Traffic
+
+  - [Project Report](Python/Datacamp/Data%20Scientist/Projects/Practical%20Assessment%20-%20Submitted%20notebook/DC%20Project%20Report.pdf)
+  - [Project Powerpoint](Python/Datacamp/Data%20Scientist/Projects/Practical%20Assessment%20-%20Submitted%20notebook/DC%20project%20presentation.pptx)
+  - [Project Notebook](Python/Datacamp/Data%20Scientist/Projects/Practical%20Assessment%20-%20Submitted%20notebook/notebook.ipynb)
+
+    *Description: Final practical assessment for the Datacamp Data Scientist Certificate. The project focused on data cleaning, EDA, model creation and comparison in a business setting.
 
   ### 📄 Python Certification
   ---
