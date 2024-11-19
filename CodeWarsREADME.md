@@ -42,6 +42,10 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
 
           *Description: Tests understanding string manipulation in Python.*
 
+        - [Challenge 6: Multiples of 3 or 5](Python/CodeWars/6kyu/Multiples%20of%203%20or%205.py) 
+
+          *Description: Tests understanding of mathematics and algorithms in Python.*
+
 ## SQL Challenges
 
   - **8 kyu**
