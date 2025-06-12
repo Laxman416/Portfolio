@@ -45,7 +45,10 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
         - [Challenge 6: Multiples of 3 or 5](Python/CodeWars/6kyu/Multiples%20of%203%20or%205.py) 
 
           *Description: Tests understanding of mathematics and algorithms in Python.*
+   - **6 kyu**
+     - [Challenge 1: How Many Numbers?](Python/CodeWars/5kyu/how_many_numbers.py) 
 
+          *Description: Tests understanding of conditionals and string formatting in Python.*
 ## SQL Challenges
 
   - **8 kyu**
