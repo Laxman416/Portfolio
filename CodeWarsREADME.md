@@ -70,6 +70,10 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
      - [Challenge 2: Observed Pin?](Python/CodeWars/4kyu/observed_pin.py) 
 
           *Description: Tests understanding of string formatting, tuples, mapping using dict, and package itertools.*
+
+     - [Challenge 3: Shortest Knight Path?](Python/CodeWars/4kyu/shortest_knight_path.py) 
+
+          *Description: Find the minimum moves for a knight to travel between two chessboard positions using mapping, tuples, and search techniques.*
           
 ## SQL Challenges
 
