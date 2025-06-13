@@ -60,6 +60,10 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
 
           *Description: Tests understanding of string formatting, tuples, and package itertools.*
           
+     - [Challenge 2: Observed Pin?](Python/CodeWars/4kyu/observed_pin.py) 
+
+          *Description: Tests understanding of string formatting, tuples, mapping using dict, and package itertools.*
+          
 ## SQL Challenges
 
   - **8 kyu**
