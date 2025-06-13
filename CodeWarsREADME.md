@@ -52,6 +52,9 @@ Each Language is split into kyu ranging from 8kyu to 1kyu.
      - [Challenge 2: Overlap Points?](Python/CodeWars/5kyu/ovelap_points.py) 
 
           *Description: Tests understanding of conditionals and algorithms in Python.*
+     - [Challenge 3: Count IP address?](Python/CodeWars/5kyu/ip_address.py) 
+
+          *Description: Tests understanding of conditionals and algorithms in Python.*
    - **4 kyu**
      - [Challenge 1: How Many Numbers?](Python/CodeWars/4kyu/iterations.py) 
 
